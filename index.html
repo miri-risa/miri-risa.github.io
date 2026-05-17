@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ha.home 單字訓練</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-black min-h-screen flex items-center justify-center p-6 text-white">
+
+  <div class="w-full max-w-2xl bg-slate-900 border border-slate-800 rounded-3xl shadow-2xl p-8 space-y-6">
+
+    <div class="text-center space-y-2">
+      <h1 class="text-4xl font-bold text-white">
+        N5/N4 單字訓練
+      </h1>
+
+      <p class="text-slate-400">
+        練啦仲望
+      </p>
+    </div>
+
+    <div class="bg-slate-950 border border-slate-800 rounded-2xl p-4 space-y-4">
+      <div>
+        <label class="block text-sm font-semibold text-slate-200 mb-2">
+          題目數量
+        </label>
+
+        <div class="flex gap-3">
+          <select
+            id="questionCount"
+            class="flex-1 p-3 rounded-xl bg-slate-900 border border-slate-700 text-white"
+          >
+          </select>
+
+          <button
+            id="refreshQuestions"
+            class="px-5 py-3 rounded-xl bg-white text-black font-semibold hover:bg-slate-300 transition-colors"
+          >
+            ⟳
+          </button>
+        </div>
+      </div>
+      <label class="block text-sm font-semibold text-slate-200">
+        Upload JSON Lesson File
+      </label>
+
+      <input
+        type="file"
+        id="jsonFile"
+        accept=".json,application/json"
+        class="block w-full text-sm text-slate-400"
+      />
+
+      <div class="text-xs text-slate-400">
+        Loaded: <span id="loadedFile">sample-questions.json</span>
+      </div>
+    </div>
+
+    <div class="bg-slate-950 border border-slate-800 text-white rounded-3xl p-8 text-center space-y-4">
+      <div id="questionCounter" class="text-sm uppercase tracking-widest text-slate-400"></div>
+
+      <div id="kanjiDisplay" class="text-8xl font-bold tracking-wide">
+        水
+      </div>
+
+      <div class="text-slate-400 text-sm">
+        請輸入羅馬拼音或平假文
+      </div>
+    </div>
+
+    <div id="quizSection" class="space-y-4">
+      <input
+        type="text"
+        id="answerInput"
+        placeholder="請在此輸入..."
+        class="w-full p-4 rounded-2xl border-2 border-slate-700 bg-slate-900 text-white focus:border-slate-400 outline-none text-lg"
+      />
+
+      <div class="flex items-center justify-between gap-4">
+        <button
+          id="submitButton"
+          class="flex-1 bg-white text-black py-4 rounded-2xl font-semibold hover:bg-slate-300 transition-colors"
+        >
+          查看答案
+        </button>
+
+        <div class="text-lg font-semibold text-slate-200 min-w-fit">
+          分數: <span id="scoreDisplay">0</span>
+        </div>
+      </div>
+
+      <div id="feedback" class="hidden p-4 rounded-2xl text-center font-medium"></div>
+        <div class="bg-slate-950 border border-slate-800 rounded-2xl p-6 space-y-4">
+      <h2 class="text-2xl font-bold text-white">
+        README
+      </h2>
+
+      <div class="space-y-3 text-slate-300 text-sm leading-relaxed">
+        <p>
+          This app loads kanji questions from a <code class="bg-slate-800 px-2 py-1 rounded">questions.json</code> file.
+        </p>
+
+        <p>
+          If a <code class="bg-slate-800 px-2 py-1 rounded">questions.json</code> file exists in the same folder as this HTML file,
+          it will automatically load on startup.
+        </p>
+
+        <p>
+          You can also manually upload another JSON file at any time.
+        </p>
+      </div>
+
+      <div>
+        <div class="text-slate-200 font-semibold mb-2">
+          JSON Template
+        </div>
+
+        <pre class="bg-black border border-slate-800 rounded-2xl p-4 overflow-x-auto text-slate-300 text-xs">[
+  {
+    "kanji": "水",
+    "answers": ["mizu", "みず"],
+    "meaning": "water"
+  },
+  {
+    "kanji": "火",
+    "answers": ["hi", "ひ"],
+    "meaning": "fire"
+  }
+]</pre>
+      </div>
+
+      <div class="space-y-2 text-slate-400 text-xs">
+        <div>
+          made by ch1 (c) 2026
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const sampleQuestions = `[
+  {
+    "kanji": "危ない",
+    "answers": [
+      "abunai",
+      "あぶない"
+    ],
+    "meaning": "危險的"
+  },
+  {
+    "kanji": "赤い",
+    "answers": [
+      "akai",
+      "あかい"
+    ],
+    "meaning": "紅色的"
+  },
+  {
+    "kanji": "明るい",
+    "answers": [
+      "akarui",
+      "あかるい"
+    ],
+    "meaning": "明亮的"
+  },
+  {
+    "kanji": "甘い",
+    "answers": [
+      "amai",
+      "あまい"
+    ],
+    "meaning": "甜的"
+  },
+  {
+    "kanji": "青い",
+    "answers": [
+      "aoi",
+      "あおい"
+    ],
+    "meaning": "藍色的"
+  },
+  {
+    "kanji": "新しい",
+    "answers": [
+      "atarashii",
+      "あたらしい"
+    ],
+    "meaning": "新的"
+  },
+  {
+    "kanji": "暖かい",
+    "answers": [
+      "atatakai",
+      "あたたかい"
+    ],
+    "meaning": "溫暖的"
+  },
+  {
+    "kanji": "熱い",
+    "answers": [
+      "atsui",
+      "あつい"
+    ],
+    "meaning": "燙的"
+  },
+  {
+    "kanji": "厚い",
+    "answers": [
+      "atsui",
+      "あつい"
+    ],
+    "meaning": "厚的"
+  },
+  {
+    "kanji": "暑い",
+    "answers": [
+      "atsui",
+      "あつい"
+    ],
+    "meaning": "炎熱的"
+  },
+  {
+    "kanji": "便利",
+    "answers": [
+      "benri",
+      "べんり"
+    ],
+    "meaning": "方便的"
+  },
+  {
+    "kanji": "小さい",
+    "answers": [
+      "chiisai",
+      "ちいさい"
+    ],
+    "meaning": "小的"
+  },
+  {
+    "kanji": "近い",
+    "answers": [
+      "chikai",
+      "ちかい"
+    ],
+    "meaning": "近的"
+  },
+  {
+    "kanji": "大丈夫",
+    "answers": [
+      "daijoubu",
+      "だいじょうぶ"
+    ],
+    "meaning": "沒問題的"
+  },
+  {
+    "kanji": "大好き",
+    "answers": [
+      "daisuki",
+      "だいすき"
+    ],
+    "meaning": "非常喜歡"
+  },
+  {
+    "kanji": "古い",
+    "answers": [
+      "furui",
+      "ふるい"
+    ],
+    "meaning": "舊的"
+  },
+  {
+    "kanji": "太い",
+    "answers": [
+      "futoi",
+      "ふとい"
+    ],
+    "meaning": "粗的"
+  },
+  {
+    "kanji": "元気",
+    "answers": [
+      "genki",
+      "げんき"
+    ],
+    "meaning": "有精神的"
+  },
+  {
+    "kanji": "速い",
+    "answers": [
+      "hayai",
+      "はやい"
+    ],
+    "meaning": "快速的"
+  },
+  {
+    "kanji": "早い",
+    "answers": [
+      "hayai",
+      "はやい"
+    ],
+    "meaning": "早的"
+  },
+  {
+    "kanji": "下手",
+    "answers": [
+      "heta",
+      "へた"
+    ],
+    "meaning": "不擅長"
+  },
+  {
+    "kanji": "低い",
+    "answers": [
+      "hikui",
+      "ひくい"
+    ],
+    "meaning": "低的"
+  },
+  {
+    "kanji": "暇",
+    "answers": [
+      "hima",
+      "ひま"
+    ],
+    "meaning": "空閒的"
+  },
+  {
+    "kanji": "広い",
+    "answers": [
+      "hiroi",
+      "ひろい"
+    ],
+    "meaning": "寬廣的"
+  },
+  {
+    "kanji": "欲しい",
+    "answers": [
+      "hoshii",
+      "ほしい"
+    ],
+    "meaning": "想要的"
+  },
+  {
+    "kanji": "細い",
+    "answers": [
+      "hosoi",
+      "ほそい"
+    ],
+    "meaning": "細的"
+  },
+  {
+    "kanji": "忙しい",
+    "answers": [
+      "isogashii",
+      "いそがしい"
+    ],
+    "meaning": "忙碌的"
+  },
+  {
+    "kanji": "痛い",
+    "answers": [
+      "itai",
+      "いたい"
+    ],
+    "meaning": "痛的"
+  },
+  {
+    "kanji": "嫌",
+    "answers": [
+      "iya",
+      "いや"
+    ],
+    "meaning": "討厭的"
+  },
+  {
+    "kanji": "丈夫",
+    "answers": [
+      "joubu",
+      "じょうぶ"
+    ],
+    "meaning": "堅固的"
+  },
+  {
+    "kanji": "上手",
+    "answers": [
+      "jouzu",
+      "じょうず"
+    ],
+    "meaning": "擅長的"
+  },
+  {
+    "kanji": "辛い",
+    "answers": [
+      "karai",
+      "からい"
+    ],
+    "meaning": "辣的"
+  },
+  {
+    "kanji": "軽い",
+    "answers": [
+      "karui",
+      "かるい"
+    ],
+    "meaning": "輕的"
+  },
+  {
+    "kanji": "可愛い",
+    "answers": [
+      "kawaii",
+      "かわいい"
+    ],
+    "meaning": "可愛的"
+  },
+  {
+    "kanji": "黄色い",
+    "answers": [
+      "kiiroi",
+      "きいろい"
+    ],
+    "meaning": "黃色的"
+  },
+  {
+    "kanji": "嫌い",
+    "answers": [
+      "kirai",
+      "きらい"
+    ],
+    "meaning": "討厭"
+  },
+  {
+    "kanji": "綺麗",
+    "answers": [
+      "kirei",
+      "きれい"
+    ],
+    "meaning": "漂亮的"
+  },
+  {
+    "kanji": "汚い",
+    "answers": [
+      "kitanai",
+      "きたない"
+    ],
+    "meaning": "髒的"
+  },
+  {
+    "kanji": "暗い",
+    "answers": [
+      "kurai",
+      "くらい"
+    ],
+    "meaning": "昏暗的"
+  },
+  {
+    "kanji": "黒い",
+    "answers": [
+      "kuroi",
+      "くろい"
+    ],
+    "meaning": "黑色的"
+  },
+  {
+    "kanji": "丸い",
+    "answers": [
+      "marui",
+      "まるい"
+    ],
+    "meaning": "圓的"
+  },
+  {
+    "kanji": "短い",
+    "answers": [
+      "mijikai",
+      "みじかい"
+    ],
+    "meaning": "短的"
+  },
+  {
+    "kanji": "難しい",
+    "answers": [
+      "muzukashii",
+      "むずかしい"
+    ],
+    "meaning": "困難的"
+  },
+  {
+    "kanji": "長い",
+    "answers": [
+      "nagai",
+      "ながい"
+    ],
+    "meaning": "長的"
+  },
+  {
+    "kanji": "賑やか",
+    "answers": [
+      "nigiyaka",
+      "にぎやか"
+    ],
+    "meaning": "熱鬧的"
+  },
+  {
+    "kanji": "美味しい",
+    "answers": [
+      "oishii",
+      "おいしい"
+    ],
+    "meaning": "好吃的"
+  },
+  {
+    "kanji": "重い",
+    "answers": [
+      "omoi",
+      "おもい"
+    ],
+    "meaning": "重的"
+  },
+  {
+    "kanji": "面白い",
+    "answers": [
+      "omoshiroi",
+      "おもしろい"
+    ],
+    "meaning": "有趣的"
+  },
+  {
+    "kanji": "多い",
+    "answers": [
+      "ooi",
+      "おおい"
+    ],
+    "meaning": "多的"
+  },
+  {
+    "kanji": "大きい",
+    "answers": [
+      "ookii",
+      "おおきい"
+    ],
+    "meaning": "大的"
+  },
+  {
+    "kanji": "遅い",
+    "answers": [
+      "osoi",
+      "おそい"
+    ],
+    "meaning": "慢的"
+  },
+  {
+    "kanji": "静か",
+    "answers": [
+      "shizuka",
+      "しずか"
+    ],
+    "meaning": "安靜的"
+  },
+  {
+    "kanji": "白い",
+    "answers": [
+      "shiroi",
+      "しろい"
+    ],
+    "meaning": "白色的"
+  },
+  {
+    "kanji": "涼しい",
+    "answers": [
+      "suzushii",
+      "すずしい"
+    ],
+    "meaning": "涼爽的"
+  },
+  {
+    "kanji": "寒い",
+    "answers": [
+      "samui",
+      "さむい"
+    ],
+    "meaning": "寒冷的"
+  },
+  {
+    "kanji": "狭い",
+    "answers": [
+      "semai",
+      "せまい"
+    ],
+    "meaning": "狹窄的"
+  },
+  {
+    "kanji": "背が高い",
+    "answers": [
+      "segatakai",
+      "せがたかい"
+    ],
+    "meaning": "個子高"
+  },
+  {
+    "kanji": "背が低い",
+    "answers": [
+      "segahikui",
+      "せがひくい"
+    ],
+    "meaning": "個子矮"
+  },
+  {
+    "kanji": "少ない",
+    "answers": [
+      "sukunai",
+      "すくない"
+    ],
+    "meaning": "少的"
+  },
+  {
+    "kanji": "すごい",
+    "answers": [
+      "sugoi",
+      "すごい"
+    ],
+    "meaning": "厲害的"
+  },
+  {
+    "kanji": "高い",
+    "answers": [
+      "takai",
+      "たかい"
+    ],
+    "meaning": "高／貴的"
+  },
+  {
+    "kanji": "楽しい",
+    "answers": [
+      "tanoshii",
+      "たのしい"
+    ],
+    "meaning": "開心的"
+  },
+  {
+    "kanji": "小さな",
+    "answers": [
+      "chiisana",
+      "ちいさな"
+    ],
+    "meaning": "小小的"
+  },
+  {
+    "kanji": "冷たい",
+    "answers": [
+      "tsumetai",
+      "つめたい"
+    ],
+    "meaning": "冰冷的"
+  },
+  {
+    "kanji": "強い",
+    "answers": [
+      "tsuyoi",
+      "つよい"
+    ],
+    "meaning": "強的"
+  },
+  {
+    "kanji": "遠い",
+    "answers": [
+      "tooi",
+      "とおい"
+    ],
+    "meaning": "遠的"
+  },
+  {
+    "kanji": "つまらない",
+    "answers": [
+      "tsumaranai",
+      "つまらない"
+    ],
+    "meaning": "無聊的"
+  },
+  {
+    "kanji": "冷い",
+    "answers": [
+      "tsumetai",
+      "つめたい"
+    ],
+    "meaning": "冷的"
+  },
+  {
+    "kanji": "悪い",
+    "answers": [
+      "warui",
+      "わるい"
+    ],
+    "meaning": "壞的"
+  },
+  {
+    "kanji": "安い",
+    "answers": [
+      "yasui",
+      "やすい"
+    ],
+    "meaning": "便宜的"
+  },
+  {
+    "kanji": "優しい",
+    "answers": [
+      "yasashii",
+      "やさしい"
+    ],
+    "meaning": "溫柔的"
+  },
+  {
+    "kanji": "弱い",
+    "answers": [
+      "yowai",
+      "よわい"
+    ],
+    "meaning": "弱的"
+  },
+  {
+    "kanji": "安心",
+    "answers": [
+      "anshin",
+      "あんしん"
+    ],
+    "meaning": "安心的"
+  },
+  {
+    "kanji": "安全",
+    "answers": [
+      "anzen",
+      "あんぜん"
+    ],
+    "meaning": "安全的"
+  },
+  {
+    "kanji": "浅い",
+    "answers": [
+      "asai",
+      "あさい"
+    ],
+    "meaning": "淺的"
+  },
+  {
+    "kanji": "大事",
+    "answers": [
+      "daiji",
+      "だいじ"
+    ],
+    "meaning": "重要的"
+  },
+  {
+    "kanji": "不便",
+    "answers": [
+      "fuben",
+      "ふべん"
+    ],
+    "meaning": "不方便的"
+  },
+  {
+    "kanji": "深い",
+    "answers": [
+      "fukai",
+      "ふかい"
+    ],
+    "meaning": "深的"
+  },
+  {
+    "kanji": "複雑",
+    "answers": [
+      "fukuzatsu",
+      "ふくざつ"
+    ],
+    "meaning": "複雜的"
+  },
+  {
+    "kanji": "恥ずかしい",
+    "answers": [
+      "hazukashii",
+      "はずかしい"
+    ],
+    "meaning": "害羞的"
+  },
+  {
+    "kanji": "変",
+    "answers": [
+      "hen",
+      "へん"
+    ],
+    "meaning": "奇怪的"
+  },
+  {
+    "kanji": "酷い",
+    "answers": [
+      "hidoi",
+      "ひどい"
+    ],
+    "meaning": "糟糕的"
+  },
+  {
+    "kanji": "自由",
+    "answers": [
+      "jiyuu",
+      "じゆう"
+    ],
+    "meaning": "自由的"
+  },
+  {
+    "kanji": "十分",
+    "answers": [
+      "juubun",
+      "じゅうぶん"
+    ],
+    "meaning": "足夠的"
+  },
+  {
+    "kanji": "悲しい",
+    "answers": [
+      "kanashii",
+      "かなしい"
+    ],
+    "meaning": "悲傷的"
+  },
+  {
+    "kanji": "簡単",
+    "answers": [
+      "kantan",
+      "かんたん"
+    ],
+    "meaning": "簡單的"
+  },
+  {
+    "kanji": "硬い",
+    "answers": [
+      "katai",
+      "かたい"
+    ],
+    "meaning": "硬的"
+  },
+  {
+    "kanji": "厳しい",
+    "answers": [
+      "kibishii",
+      "きびしい"
+    ],
+    "meaning": "嚴格的"
+  },
+  {
+    "kanji": "危険",
+    "answers": [
+      "kiken",
+      "きけん"
+    ],
+    "meaning": "危險的"
+  },
+  {
+    "kanji": "細かい",
+    "answers": [
+      "komakai",
+      "こまかい"
+    ],
+    "meaning": "細微的"
+  },
+  {
+    "kanji": "怖い",
+    "answers": [
+      "kowai",
+      "こわい"
+    ],
+    "meaning": "可怕的"
+  },
+  {
+    "kanji": "珍しい",
+    "answers": [
+      "mezurashii",
+      "めずらしい"
+    ],
+    "meaning": "稀奇的"
+  },
+  {
+    "kanji": "無理",
+    "answers": [
+      "muri",
+      "むり"
+    ],
+    "meaning": "勉強的／不可能的"
+  },
+  {
+    "kanji": "眠い",
+    "answers": [
+      "nemui",
+      "ねむい"
+    ],
+    "meaning": "睏的"
+  },
+  {
+    "kanji": "苦い",
+    "answers": [
+      "nigai",
+      "にがい"
+    ],
+    "meaning": "苦的"
+  },
+  {
+    "kanji": "可笑しい",
+    "answers": [
+      "okashii",
+      "おかしい"
+    ],
+    "meaning": "奇怪／好笑的"
+  },
+  {
+    "kanji": "寂しい",
+    "answers": [
+      "sabishii",
+      "さびしい"
+    ],
+    "meaning": "寂寞的"
+  },
+  {
+    "kanji": "親切",
+    "answers": [
+      "shinsetsu",
+      "しんせつ"
+    ],
+    "meaning": "親切的"
+  },
+  {
+    "kanji": "素晴らしい",
+    "answers": [
+      "subarashii",
+      "すばらしい"
+    ],
+    "meaning": "精彩的"
+  },
+  {
+    "kanji": "正しい",
+    "answers": [
+      "tadashii",
+      "ただしい"
+    ],
+    "meaning": "正確的"
+  },
+  {
+    "kanji": "丁寧",
+    "answers": [
+      "teinei",
+      "ていねい"
+    ],
+    "meaning": "有禮貌的"
+  },
+  {
+    "kanji": "特別",
+    "answers": [
+      "tokubetsu",
+      "とくべつ"
+    ],
+    "meaning": "特別的"
+  },
+  {
+    "kanji": "嬉しい",
+    "answers": [
+      "ureshii",
+      "うれしい"
+    ],
+    "meaning": "開心的"
+  },
+  {
+    "kanji": "美しい",
+    "answers": [
+      "utsukushii",
+      "うつくしい"
+    ],
+    "meaning": "美麗的"
+  },
+  {
+    "kanji": "柔らかい",
+    "answers": [
+      "yawarakai",
+      "やわらかい"
+    ],
+    "meaning": "柔軟的"
+  },
+  {
+    "kanji": "残念",
+    "answers": [
+      "zannen",
+      "ざんねん"
+    ],
+    "meaning": "可惜的"
+  }
+    ]`;
+
+    let questions = [];
+    let allQuestions = [];
+    let currentIndex = 0;
+    let score = 0;
+
+    const jsonFileInput = document.getElementById('jsonFile');
+    const loadedFile = document.getElementById('loadedFile');
+    const kanjiDisplay = document.getElementById('kanjiDisplay');
+    const questionCounter = document.getElementById('questionCounter');
+    const answerInput = document.getElementById('answerInput');
+    const submitButton = document.getElementById('submitButton');
+    const scoreDisplay = document.getElementById('scoreDisplay');
+    const feedback = document.getElementById('feedback');
+    const quizSection = document.getElementById('quizSection');
+    const questionCountSelect = document.getElementById('questionCount');
+    const refreshQuestionsButton = document.getElementById('refreshQuestions');
+
+    function parseQuestions(jsonText) {
+      try {
+        return JSON.parse(jsonText);
+      } catch (error) {
+        alert('Invalid JSON file.');
+        return [];
+      }
+    }
+
+    function normalize(text) {
+      return text.trim().toLowerCase().replace(/\s+/g, '');
+    }
+
+    function populateQuestionOptions() {
+      const options = [20, 30, 40, 50, 60, 100];
+
+      questionCountSelect.innerHTML = '';
+
+      options.forEach(option => {
+        if (option <= allQuestions.length) {
+          const opt = document.createElement('option');
+          opt.value = option;
+          opt.textContent = option;
+          questionCountSelect.appendChild(opt);
+        }
+      });
+
+      const allOption = document.createElement('option');
+      allOption.value = 'all';
+      allOption.textContent = `All (${allQuestions.length})`;
+      questionCountSelect.appendChild(allOption);
+    }
+
+    function shuffleArray(array) {
+      return [...array].sort(() => Math.random() - 0.5);
+    }
+
+    function startQuiz() {
+      const selectedValue = questionCountSelect.value;
+
+      if (selectedValue === 'all') {
+        questions = shuffleArray(allQuestions);
+      } else {
+        const count = parseInt(selectedValue);
+        questions = shuffleArray(allQuestions).slice(0, count);
+      }
+
+      currentIndex = 0;
+      score = 0;
+
+      scoreDisplay.textContent = score;
+      quizSection.style.display = 'block';
+      feedback.classList.add('hidden');
+
+      updateQuestion();
+    }
+
+    function updateQuestion() {
+      if (currentIndex >= questions.length) {
+        kanjiDisplay.innerHTML = '🎉';
+        questionCounter.textContent = 'Practice Complete!';
+
+        feedback.classList.remove('hidden');
+        feedback.className = 'p-4 rounded-2xl text-center font-medium bg-green-900 text-green-200';
+        feedback.innerHTML = `
+          <div class="space-y-4">
+            <div>Final Score: ${score} / ${questions.length}</div>
+            <button
+              onclick="restartQuiz()"
+              class="bg-white text-black px-6 py-3 rounded-2xl font-semibold hover:bg-slate-300 transition-colors"
+            >
+              Restart Test
+            </button>
+          </div>
+        `;
+
+        quizSection.style.display = 'none';
+        return;
+      }
+
+      const current = questions[currentIndex];
+
+      kanjiDisplay.textContent = current.kanji;
+      questionCounter.textContent = `Question ${currentIndex + 1} / ${questions.length}`;
+
+      answerInput.value = '';
+      answerInput.focus();
+    }
+
+    function checkAnswer() {
+      const current = questions[currentIndex];
+      if (!current) return;
+
+      const userAnswer = normalize(answerInput.value);
+
+      const isCorrect = current.answers.some(answer => normalize(answer) === userAnswer);
+
+      feedback.classList.remove('hidden');
+
+      if (isCorrect) {
+        score++;
+        scoreDisplay.textContent = score;
+
+        feedback.className = 'p-4 rounded-2xl text-center font-medium bg-green-900 text-green-200';
+        feedback.textContent = '✅ 正確';
+
+        currentIndex++;
+
+        setTimeout(() => {
+          updateQuestion();
+        }, 1000);
+      } else {
+        feedback.className = 'p-4 rounded-2xl text-center font-medium bg-red-900 text-red-200';
+        feedback.textContent = `❌ 咩事啊 你咁都唔識？  無用的提示：${current.meaning}`;
+      }
+    }
+
+    function loadQuestions(jsonText) {
+      allQuestions = parseQuestions(jsonText);
+
+      populateQuestionOptions();
+      startQuiz();
+    }
+
+    function restartQuiz() {
+      startQuiz();
+    }
+
+    async function loadDefaultQuestionsFile() {
+      try {
+        const response = await fetch('./questions.json');
+
+        if (!response.ok) {
+          throw new Error('questions.json not found');
+        }
+
+        const text = await response.text();
+
+        loadedFile.textContent = 'questions.json';
+        loadQuestions(text);
+      } catch (error) {
+        console.log('No questions.json file found. Using built-in sample questions.');
+
+        loadedFile.textContent = 'Built-in Sample Questions';
+        loadQuestions(sampleQuestions);
+      }
+    }
+
+    jsonFileInput.addEventListener('change', (event) => {
+      const file = event.target.files[0];
+      if (!file) return;
+
+      loadedFile.textContent = file.name;
+
+      const reader = new FileReader();
+
+      reader.onload = (e) => {
+        loadQuestions(e.target.result);
+      };
+
+      reader.readAsText(file, 'UTF-8');
+    });
+
+    submitButton.addEventListener('click', checkAnswer);
+
+    refreshQuestionsButton.addEventListener('click', () => {
+      if (allQuestions.length === 0) return;
+
+      startQuiz();
+    });
+
+    questionCountSelect.addEventListener('change', () => {
+      if (allQuestions.length === 0) return;
+
+      startQuiz();
+    });
+
+    answerInput.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter') {
+        checkAnswer();
+      }
+    });
+
+    loadQuestions(sampleQuestions);
+  </script>
+
+</body>
+</html>

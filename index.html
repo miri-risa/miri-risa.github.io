@@ -1079,7 +1079,7 @@
       if (isCorrect) {
         score++;
         scoreDisplay.textContent = score;
-        feedback.textContent = '✓ 正解！';
+        feedback.textContent = '〇 正解！';
         feedback.className = 'p-4 rounded-2xl text-center font-medium bg-green-900 bg-opacity-30 border border-green-700';
         feedback.classList.remove('hidden');
         hideHint();
@@ -1089,7 +1089,7 @@
           updateQuestion();
         }, 1000);
       } else {
-        feedback.textContent = '✗ 不正解';
+        feedback.textContent = '✗ 下你咁都唔識';
         feedback.className = 'p-4 rounded-2xl text-center font-medium bg-red-900 bg-opacity-30 border border-red-700';
         feedback.classList.remove('hidden');
         showHint();

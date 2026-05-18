@@ -1120,8 +1120,11 @@
           updateQuestion();
         }, 1000);
       } else {
+        const kanaAnswer = current.answers.find(answer => /[ぁ-んァ-ン]/.test(answer)) || current.answers[0];
+        const hintCharacter = kanaAnswer.charAt(0);
+
         feedback.className = 'p-4 rounded-2xl text-center font-medium bg-red-900 text-red-200';
-        feedback.textContent = `❌ 咩事啊 你咁都唔識？  無用的提示：${current.meaning}`;
+        feedback.textContent = `❌ 咩事啊 你咁都唔識？  提示：${hintCharacter}`;
       }
     }
 

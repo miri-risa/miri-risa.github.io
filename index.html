@@ -91,6 +91,7 @@
       </div>
 
       <div id="feedback" class="hidden p-4 rounded-2xl text-center font-medium"></div>
+      <div id="hint" class="hidden p-3 rounded-2xl text-center font-medium text-yellow-300 bg-yellow-900 bg-opacity-30 border border-yellow-700"></div>
         <div class="bg-slate-950 border border-slate-800 rounded-2xl p-6 space-y-4">
       <h2 class="text-2xl font-bold text-white">
         README
@@ -989,7 +990,7 @@
     ],
     "meaning": "可惜的"
   }
-    ]`;
+     ]`;
 
     let questions = [];
     let allQuestions = [];
@@ -998,201 +999,148 @@
 
     const jsonFileInput = document.getElementById('jsonFile');
     const loadedFile = document.getElementById('loadedFile');
-    const kanjiDisplay = document.getElementById('kanjiDisplay');
     const questionCounter = document.getElementById('questionCounter');
+    const kanjiDisplay = document.getElementById('kanjiDisplay');
     const answerInput = document.getElementById('answerInput');
     const submitButton = document.getElementById('submitButton');
-    const scoreDisplay = document.getElementById('scoreDisplay');
     const feedback = document.getElementById('feedback');
-    const quizSection = document.getElementById('quizSection');
+    const hint = document.getElementById('hint');
+    const scoreDisplay = document.getElementById('scoreDisplay');
     const questionCountSelect = document.getElementById('questionCount');
-    const refreshQuestionsButton = document.getElementById('refreshQuestions');
+    const refreshButton = document.getElementById('refreshQuestions');
 
-    function parseQuestions(jsonText) {
+    function getKatakanaAnswer() {
+      const currentQuestion = questions[currentIndex];
+      // Find the katakana answer (contains hiragana characters)
+      const katakanaAnswer = currentQuestion.answers.find(ans => 
+        /[\u3041-\u309F]/.test(ans) // Hiragana range
+      );
+      return katakanaAnswer || currentQuestion.answers[1] || currentQuestion.answers[0];
+    }
+
+    function showHint() {
+      const katakanaAnswer = getKatakanaAnswer();
+      if (katakanaAnswer && katakanaAnswer.length > 0) {
+        const firstChar = katakanaAnswer.charAt(0);
+        hint.textContent = `💡 ヒント: ${firstChar}`;
+        hint.classList.remove('hidden');
+      }
+    }
+
+    function hideHint() {
+      hint.classList.add('hidden');
+    }
+
+    function initializeApp() {
       try {
-        return JSON.parse(jsonText);
+        allQuestions = JSON.parse(sampleQuestions);
+        loadQuestions(10);
+        populateQuestionCount();
       } catch (error) {
-        alert('Invalid JSON file.');
-        return [];
+        console.error('Error parsing sample questions:', error);
       }
     }
 
-    function normalize(text) {
-      return text.trim().toLowerCase().replace(/\s+/g, '');
-    }
-
-    function populateQuestionOptions() {
-      const options = [20, 30, 40, 50, 60, 100];
-
-      questionCountSelect.innerHTML = '';
-
-      options.forEach(option => {
-        if (option <= allQuestions.length) {
-          const opt = document.createElement('option');
-          opt.value = option;
-          opt.textContent = option;
-          questionCountSelect.appendChild(opt);
-        }
-      });
-
-      const allOption = document.createElement('option');
-      allOption.value = 'all';
-      allOption.textContent = `All (${allQuestions.length})`;
-      questionCountSelect.appendChild(allOption);
-    }
-
-    function shuffleArray(array) {
-      return [...array].sort(() => Math.random() - 0.5);
-    }
-
-    function startQuiz() {
-      const selectedValue = questionCountSelect.value;
-
-      if (selectedValue === 'all') {
-        questions = shuffleArray(allQuestions);
-      } else {
-        const count = parseInt(selectedValue);
-        questions = shuffleArray(allQuestions).slice(0, count);
-      }
-
+    function loadQuestions(count) {
+      questions = [];
+      const shuffled = [...allQuestions].sort(() => Math.random() - 0.5);
+      questions = shuffled.slice(0, Math.min(count, shuffled.length));
       currentIndex = 0;
       score = 0;
-
       scoreDisplay.textContent = score;
-      quizSection.style.display = 'block';
-      feedback.classList.add('hidden');
-
       updateQuestion();
     }
 
     function updateQuestion() {
-      if (currentIndex >= questions.length) {
-        kanjiDisplay.innerHTML = '🎉';
-        questionCounter.textContent = 'Practice Complete!';
-
-        feedback.classList.remove('hidden');
-        feedback.className = 'p-4 rounded-2xl text-center font-medium bg-green-900 text-green-200';
-        feedback.innerHTML = `
-          <div class="space-y-4">
-            <div>Final Score: ${score} / ${questions.length}</div>
-            <button
-              onclick="restartQuiz()"
-              class="bg-white text-black px-6 py-3 rounded-2xl font-semibold hover:bg-slate-300 transition-colors"
-            >
-              Restart Test
-            </button>
-          </div>
-        `;
-
-        quizSection.style.display = 'none';
-        return;
+      hideHint();
+      if (currentIndex < questions.length) {
+        const question = questions[currentIndex];
+        kanjiDisplay.textContent = question.kanji;
+        questionCounter.textContent = `第 ${currentIndex + 1} / ${questions.length} 問`;
+        answerInput.value = '';
+        answerInput.focus();
+        feedback.classList.add('hidden');
+        feedback.textContent = '';
+      } else {
+        kanjiDisplay.textContent = '終了！';
+        questionCounter.textContent = `スコア: ${score} / ${questions.length}`;
+        submitButton.disabled = true;
+        answerInput.disabled = true;
       }
-
-      const current = questions[currentIndex];
-
-      kanjiDisplay.textContent = current.kanji;
-      questionCounter.textContent = `Question ${currentIndex + 1} / ${questions.length}`;
-
-      answerInput.value = '';
-      answerInput.focus();
     }
 
     function checkAnswer() {
-      const current = questions[currentIndex];
-      if (!current) return;
-
-      const userAnswer = normalize(answerInput.value);
-
-      const isCorrect = current.answers.some(answer => normalize(answer) === userAnswer);
-
-      feedback.classList.remove('hidden');
+      const userAnswer = answerInput.value.trim().toLowerCase();
+      const question = questions[currentIndex];
+      const isCorrect = question.answers.some(ans => 
+        ans.toLowerCase() === userAnswer
+      );
 
       if (isCorrect) {
         score++;
         scoreDisplay.textContent = score;
-
-        feedback.className = 'p-4 rounded-2xl text-center font-medium bg-green-900 text-green-200';
-        feedback.textContent = '✅ 正確';
-
-        currentIndex++;
-
+        feedback.textContent = '✓ 正解！';
+        feedback.className = 'p-4 rounded-2xl text-center font-medium bg-green-900 bg-opacity-30 border border-green-700';
+        feedback.classList.remove('hidden');
+        hideHint();
+        
         setTimeout(() => {
+          currentIndex++;
           updateQuestion();
         }, 1000);
       } else {
-        feedback.className = 'p-4 rounded-2xl text-center font-medium bg-red-900 text-red-200';
-        feedback.textContent = `❌ 咩事啊 你咁都唔識？  無用的提示：${current.meaning}`;
+        feedback.textContent = '✗ 不正解';
+        feedback.className = 'p-4 rounded-2xl text-center font-medium bg-red-900 bg-opacity-30 border border-red-700';
+        feedback.classList.remove('hidden');
+        showHint();
       }
     }
 
-    function loadQuestions(jsonText) {
-      allQuestions = parseQuestions(jsonText);
-
-      populateQuestionOptions();
-      startQuiz();
-    }
-
-    function restartQuiz() {
-      startQuiz();
-    }
-
-    async function loadDefaultQuestionsFile() {
-      try {
-        const response = await fetch('./questions.json');
-
-        if (!response.ok) {
-          throw new Error('questions.json not found');
-        }
-
-        const text = await response.text();
-
-        loadedFile.textContent = 'questions.json';
-        loadQuestions(text);
-      } catch (error) {
-        console.log('No questions.json file found. Using built-in sample questions.');
-
-        loadedFile.textContent = 'Built-in Sample Questions';
-        loadQuestions(sampleQuestions);
+    function populateQuestionCount() {
+      questionCountSelect.innerHTML = '';
+      for (let i = 5; i <= 50; i += 5) {
+        const option = document.createElement('option');
+        option.value = i;
+        option.textContent = i;
+        if (i === 10) option.selected = true;
+        questionCountSelect.appendChild(option);
       }
     }
 
-    jsonFileInput.addEventListener('change', (event) => {
-      const file = event.target.files[0];
-      if (!file) return;
-
-      loadedFile.textContent = file.name;
-
-      const reader = new FileReader();
-
-      reader.onload = (e) => {
-        loadQuestions(e.target.result);
-      };
-
-      reader.readAsText(file, 'UTF-8');
+    jsonFileInput.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = (event) => {
+          try {
+            allQuestions = JSON.parse(event.target.result);
+            loadedFile.textContent = file.name;
+            const count = parseInt(questionCountSelect.value);
+            loadQuestions(count);
+          } catch (error) {
+            alert('エラー: JSONファイルを解析できません');
+          }
+        };
+        reader.readAsText(file);
+      }
     });
 
     submitButton.addEventListener('click', checkAnswer);
-
-    refreshQuestionsButton.addEventListener('click', () => {
-      if (allQuestions.length === 0) return;
-
-      startQuiz();
+    answerInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') checkAnswer();
     });
 
-    questionCountSelect.addEventListener('change', () => {
-      if (allQuestions.length === 0) return;
-
-      startQuiz();
+    questionCountSelect.addEventListener('change', (e) => {
+      const count = parseInt(e.target.value);
+      loadQuestions(count);
     });
 
-    answerInput.addEventListener('keydown', (event) => {
-      if (event.key === 'Enter') {
-        checkAnswer();
-      }
+    refreshButton.addEventListener('click', () => {
+      const count = parseInt(questionCountSelect.value);
+      loadQuestions(count);
     });
 
-    loadQuestions(sampleQuestions);
+    initializeApp();
   </script>
-
 </body>
 </html>

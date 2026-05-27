@@ -1,0 +1,692 @@
+[
+  {
+    "kanji": "会",
+    "answers": ["あいます", "会う"],
+    "meaning": "見面"
+  },
+  {
+    "kanji": "開",
+    "answers": ["あきます", "開く"],
+    "meaning": "打開"
+  },
+  {
+    "kanji": "遊",
+    "answers": ["あそびます", "遊ぶ"],
+    "meaning": "玩"
+  },
+  {
+    "kanji": "歩",
+    "answers": ["あるきます", "歩く"],
+    "meaning": "步行"
+  },
+  {
+    "kanji": "言",
+    "answers": ["いいます", "言う"],
+    "meaning": "說"
+  },
+  {
+    "kanji": "行",
+    "answers": ["いきます", "行く"],
+    "meaning": "去"
+  },
+  {
+    "kanji": "急",
+    "answers": ["いそぎます", "急ぐ"],
+    "meaning": "趕快"
+  },
+  {
+    "kanji": "歌",
+    "answers": ["うたいます", "歌う"],
+    "meaning": "唱歌"
+  },
+  {
+    "kanji": "売",
+    "answers": ["うります", "売る"],
+    "meaning": "賣"
+  },
+  {
+    "kanji": "置",
+    "answers": ["おきます", "置く"],
+    "meaning": "放置"
+  },
+  {
+    "kanji": "送",
+    "answers": ["おくります", "送る"],
+    "meaning": "寄送"
+  },
+  {
+    "kanji": "押",
+    "answers": ["おします", "押す"],
+    "meaning": "按"
+  },
+  {
+    "kanji": "思",
+    "answers": ["おもいます", "思う"],
+    "meaning": "想"
+  },
+  {
+    "kanji": "泳",
+    "answers": ["およぎます", "泳ぐ"],
+    "meaning": "游泳"
+  },
+  {
+    "kanji": "買",
+    "answers": ["かいます", "買う"],
+    "meaning": "買"
+  },
+  {
+    "kanji": "返",
+    "answers": ["かえします", "返す"],
+    "meaning": "歸還"
+  },
+  {
+    "kanji": "帰",
+    "answers": ["かえります", "帰る"],
+    "meaning": "回家"
+  },
+  {
+    "kanji": "書",
+    "answers": ["かきます", "書く"],
+    "meaning": "寫"
+  },
+  {
+    "kanji": "貸",
+    "answers": ["かします", "貸す"],
+    "meaning": "借出"
+  },
+  {
+    "kanji": "聞",
+    "answers": ["ききます", "聞く"],
+    "meaning": "聽"
+  },
+  {
+    "kanji": "切",
+    "answers": ["きります", "切る"],
+    "meaning": "切"
+  },
+  {
+    "kanji": "消",
+    "answers": ["けします", "消す"],
+    "meaning": "關掉"
+  },
+  {
+    "kanji": "困",
+    "answers": ["こまります", "困る"],
+    "meaning": "困擾"
+  },
+  {
+    "kanji": "死",
+    "answers": ["しにます", "死ぬ"],
+    "meaning": "死亡"
+  },
+  {
+    "kanji": "吸",
+    "answers": ["すいます", "吸う"],
+    "meaning": "吸"
+  },
+  {
+    "kanji": "住",
+    "answers": ["すみます", "住む"],
+    "meaning": "居住"
+  },
+  {
+    "kanji": "座",
+    "answers": ["すわります", "座る"],
+    "meaning": "坐"
+  },
+  {
+    "kanji": "出",
+    "answers": ["だします", "出す"],
+    "meaning": "拿出"
+  },
+  {
+    "kanji": "立",
+    "answers": ["たちます", "立つ"],
+    "meaning": "站立"
+  },
+  {
+    "kanji": "頼",
+    "answers": ["たのみます", "頼む"],
+    "meaning": "拜託"
+  },
+  {
+    "kanji": "違",
+    "answers": ["ちがいます", "違う"],
+    "meaning": "不同"
+  },
+  {
+    "kanji": "使",
+    "answers": ["つかいます", "使う"],
+    "meaning": "使用"
+  },
+  {
+    "kanji": "作",
+    "answers": ["つくります", "作る"],
+    "meaning": "製作"
+  },
+  {
+    "kanji": "着",
+    "answers": ["つきます", "着く"],
+    "meaning": "到達"
+  },
+  {
+    "kanji": "撮",
+    "answers": ["とります", "撮る"],
+    "meaning": "拍攝"
+  },
+  {
+    "kanji": "飛",
+    "answers": ["とびます", "飛ぶ"],
+    "meaning": "飛"
+  },
+  {
+    "kanji": "泣",
+    "answers": ["なきます", "泣く"],
+    "meaning": "哭"
+  },
+  {
+    "kanji": "習",
+    "answers": ["ならいます", "習う"],
+    "meaning": "學習"
+  },
+  {
+    "kanji": "並",
+    "answers": ["ならびます", "並ぶ"],
+    "meaning": "排列"
+  },
+  {
+    "kanji": "飲",
+    "answers": ["のみます", "飲む"],
+    "meaning": "喝"
+  },
+  {
+    "kanji": "入",
+    "answers": ["はいります", "入る"],
+    "meaning": "進入"
+  },
+  {
+    "kanji": "履",
+    "answers": ["はきます", "履く"],
+    "meaning": "穿（鞋褲）"
+  },
+  {
+    "kanji": "始",
+    "answers": ["はじまります", "始まる"],
+    "meaning": "開始"
+  },
+  {
+    "kanji": "働",
+    "answers": ["はたらきます", "働く"],
+    "meaning": "工作"
+  },
+  {
+    "kanji": "話",
+    "answers": ["はなします", "話す"],
+    "meaning": "說話"
+  },
+  {
+    "kanji": "払",
+    "answers": ["はらいます", "払う"],
+    "meaning": "付款"
+  },
+  {
+    "kanji": "引",
+    "answers": ["ひきます", "引く"],
+    "meaning": "拉"
+  },
+  {
+    "kanji": "待",
+    "answers": ["まちます", "待つ"],
+    "meaning": "等待"
+  },
+  {
+    "kanji": "持",
+    "answers": ["もちます", "持つ"],
+    "meaning": "拿"
+  },
+  {
+    "kanji": "休",
+    "answers": ["やすみます", "休む"],
+    "meaning": "休息"
+  },
+  {
+    "kanji": "呼",
+    "answers": ["よびます", "呼ぶ"],
+    "meaning": "叫喚"
+  },
+  {
+    "kanji": "読",
+    "answers": ["よみます", "読む"],
+    "meaning": "閱讀"
+  },
+  {
+    "kanji": "分",
+    "answers": ["わかります", "分かる"],
+    "meaning": "明白"
+  },
+  {
+    "kanji": "渡",
+    "answers": ["わたします", "渡す"],
+    "meaning": "交給"
+  },
+  {
+    "kanji": "渡",
+    "answers": ["わたります", "渡る"],
+    "meaning": "渡過"
+  },
+  {
+    "kanji": "開",
+    "answers": ["あけます", "開ける"],
+    "meaning": "打開"
+  },
+  {
+    "kanji": "浴",
+    "answers": ["あびます", "浴びる"],
+    "meaning": "淋浴"
+  },
+  {
+    "kanji": "入",
+    "answers": ["いれます", "入れる"],
+    "meaning": "放入"
+  },
+  {
+    "kanji": "起",
+    "answers": ["おきます", "起きる"],
+    "meaning": "起床"
+  },
+  {
+    "kanji": "教",
+    "answers": ["おしえます", "教える"],
+    "meaning": "教導"
+  },
+  {
+    "kanji": "降",
+    "answers": ["おります", "降りる"],
+    "meaning": "下車"
+  },
+  {
+    "kanji": "借",
+    "answers": ["かります", "借りる"],
+    "meaning": "借入"
+  },
+  {
+    "kanji": "着",
+    "answers": ["きます", "着る"],
+    "meaning": "穿（上衣）"
+  },
+  {
+    "kanji": "消",
+    "answers": ["きえます", "消える"],
+    "meaning": "消失"
+  },
+  {
+    "kanji": "閉",
+    "answers": ["しめます", "閉める"],
+    "meaning": "關閉"
+  },
+  {
+    "kanji": "調",
+    "answers": ["しらべます", "調べる"],
+    "meaning": "調查"
+  },
+  {
+    "kanji": "食",
+    "answers": ["たべます", "食べる"],
+    "meaning": "吃"
+  },
+  {
+    "kanji": "疲",
+    "answers": ["つかれます", "疲れる"],
+    "meaning": "疲累"
+  },
+  {
+    "kanji": "出かけ",
+    "answers": ["でかけます", "出かける"],
+    "meaning": "出門"
+  },
+  {
+    "kanji": "出",
+    "answers": ["でます", "出る"],
+    "meaning": "出去"
+  },
+  {
+    "kanji": "寝",
+    "answers": ["ねます", "寝る"],
+    "meaning": "睡覺"
+  },
+  {
+    "kanji": "見せ",
+    "answers": ["みせます", "見せる"],
+    "meaning": "展示"
+  },
+  {
+    "kanji": "見",
+    "answers": ["みます", "見る"],
+    "meaning": "看"
+  },
+  {
+    "kanji": "迎",
+    "answers": ["むかえます", "迎える"],
+    "meaning": "迎接"
+  },
+  {
+    "kanji": "忘",
+    "answers": ["わすれます", "忘れる"],
+    "meaning": "忘記"
+  },
+  {
+    "kanji": "足",
+    "answers": ["たります", "足りる"],
+    "meaning": "足夠"
+  },
+  {
+    "kanji": "過",
+    "answers": ["すぎます", "過ぎる"],
+    "meaning": "超過"
+  },
+  {
+    "kanji": "始",
+    "answers": ["はじめます", "始める"],
+    "meaning": "開始"
+  },
+  {
+    "kanji": "並",
+    "answers": ["ならべます", "並べる"],
+    "meaning": "排列"
+  },
+  {
+    "kanji": "覚",
+    "answers": ["おぼえます", "覚える"],
+    "meaning": "記住"
+  },
+  {
+    "kanji": "勉強",
+    "answers": ["べんきょうします", "勉強する"],
+    "meaning": "學習"
+  },
+  {
+    "kanji": "掃除",
+    "answers": ["そうじします", "掃除する"],
+    "meaning": "打掃"
+  },
+  {
+    "kanji": "洗濯",
+    "answers": ["せんたくします", "洗濯する"],
+    "meaning": "洗衣"
+  },
+  {
+    "kanji": "電話",
+    "answers": ["でんわします", "電話する"],
+    "meaning": "打電話"
+  },
+  {
+    "kanji": "買い物",
+    "answers": ["かいものします", "買い物する"],
+    "meaning": "購物"
+  },
+  {
+    "kanji": "散歩",
+    "answers": ["さんぽします", "散歩する"],
+    "meaning": "散步"
+  },
+  {
+    "kanji": "練習",
+    "answers": ["れんしゅうします", "練習する"],
+    "meaning": "練習"
+  },
+  {
+    "kanji": "来",
+    "answers": ["きます", "来る"],
+    "meaning": "來"
+  },
+  {
+    "kanji": "乗",
+    "answers": ["のります", "乗る"],
+    "meaning": "乘坐"
+  },
+  {
+    "kanji": "降",
+    "answers": ["おります", "降りる"],
+    "meaning": "下車"
+  },
+  {
+    "kanji": "走",
+    "answers": ["はしります", "走る"],
+    "meaning": "跑"
+  },
+  {
+    "kanji": "泳",
+    "answers": ["およぎます", "泳ぐ"],
+    "meaning": "游泳"
+  },
+  {
+    "kanji": "登",
+    "answers": ["のぼります", "登る"],
+    "meaning": "攀登"
+  },
+  {
+    "kanji": "働",
+    "answers": ["はたらきます", "働く"],
+    "meaning": "工作"
+  },
+  {
+    "kanji": "住",
+    "answers": ["すみます", "住む"],
+    "meaning": "居住"
+  },
+  {
+    "kanji": "結婚",
+    "answers": ["けっこんします", "結婚する"],
+    "meaning": "結婚"
+  },
+  {
+    "kanji": "旅行",
+    "answers": ["りょこうします", "旅行する"],
+    "meaning": "旅行"
+  },
+  {
+    "kanji": "料理",
+    "answers": ["りょうりします", "料理する"],
+    "meaning": "做菜"
+  },
+  {
+    "kanji": "運転",
+    "answers": ["うんてんします", "運転する"],
+    "meaning": "開車"
+  },
+  {
+    "kanji": "予約",
+    "answers": ["よやくします", "予約する"],
+    "meaning": "預約"
+  },
+  {
+    "kanji": "説明",
+    "answers": ["せつめいします", "説明する"],
+    "meaning": "說明"
+  },
+  {
+    "kanji": "案内",
+    "answers": ["あんないします", "案内する"],
+    "meaning": "帶路"
+  },
+  {
+    "kanji": "残業",
+    "answers": ["ざんぎょうします", "残業する"],
+    "meaning": "加班"
+  },
+  {
+    "kanji": "運動",
+    "answers": ["うんどうします", "運動する"],
+    "meaning": "運動"
+  },
+  {
+    "kanji": "心配",
+    "answers": ["しんぱいします", "心配する"],
+    "meaning": "擔心"
+  },
+  {
+    "kanji": "約束",
+    "answers": ["やくそくします", "約束する"],
+    "meaning": "約定"
+  },
+  {
+    "kanji": "連絡",
+    "answers": ["れんらくします", "連絡する"],
+    "meaning": "聯絡"
+  },
+  {
+    "kanji": "準備",
+    "answers": ["じゅんびします", "準備する"],
+    "meaning": "準備"
+  },
+  {
+    "kanji": "質問",
+    "answers": ["しつもんします", "質問する"],
+    "meaning": "提問"
+  },
+  {
+    "kanji": "返事",
+    "answers": ["へんじします", "返事する"],
+    "meaning": "回覆"
+  },
+  {
+    "kanji": "復習",
+    "answers": ["ふくしゅうします", "復習する"],
+    "meaning": "複習"
+  },
+  {
+    "kanji": "予習",
+    "answers": ["よしゅうします", "予習する"],
+    "meaning": "預習"
+  },
+  {
+    "kanji": "相談",
+    "answers": ["そうだんします", "相談する"],
+    "meaning": "商量"
+  },
+  {
+    "kanji": "紹介",
+    "answers": ["しょうかいします", "紹介する"],
+    "meaning": "介紹"
+  },
+  {
+    "kanji": "利用",
+    "answers": ["りようします", "利用する"],
+    "meaning": "利用"
+  },
+  {
+    "kanji": "経験",
+    "answers": ["けいけんします", "経験する"],
+    "meaning": "經驗"
+  },
+  {
+    "kanji": "注意",
+    "answers": ["ちゅういします", "注意する"],
+    "meaning": "注意"
+  },
+  {
+    "kanji": "安心",
+    "answers": ["あんしんします", "安心する"],
+    "meaning": "放心"
+  },
+  {
+    "kanji": "感動",
+    "answers": ["かんどうします", "感動する"],
+    "meaning": "感動"
+  },
+  {
+    "kanji": "失敗",
+    "answers": ["しっぱいします", "失敗する"],
+    "meaning": "失敗"
+  },
+  {
+    "kanji": "成功",
+    "answers": ["せいこうします", "成功する"],
+    "meaning": "成功"
+  },
+  {
+    "kanji": "遅刻",
+    "answers": ["ちこくします", "遅刻する"],
+    "meaning": "遲到"
+  },
+  {
+    "kanji": "留学",
+    "answers": ["りゅうがくします", "留学する"],
+    "meaning": "留學"
+  },
+  {
+    "kanji": "卒業",
+    "answers": ["そつぎょうします", "卒業する"],
+    "meaning": "畢業"
+  },
+  {
+    "kanji": "入学",
+    "answers": ["にゅうがくします", "入学する"],
+    "meaning": "入學"
+  },
+  {
+    "kanji": "受付",
+    "answers": ["うけつけします", "受付する"],
+    "meaning": "受理"
+  },
+  {
+    "kanji": "確認",
+    "answers": ["かくにんします", "確認する"],
+    "meaning": "確認"
+  },
+  {
+    "kanji": "保存",
+    "answers": ["ほぞんします", "保存する"],
+    "meaning": "保存"
+  },
+  {
+    "kanji": "参加",
+    "answers": ["さんかします", "参加する"],
+    "meaning": "參加"
+  },
+  {
+    "kanji": "到着",
+    "answers": ["とうちゃくします", "到着する"],
+    "meaning": "到達"
+  },
+  {
+    "kanji": "出発",
+    "answers": ["しゅっぱつします", "出発する"],
+    "meaning": "出發"
+  },
+  {
+    "kanji": "交換",
+    "answers": ["こうかんします", "交換する"],
+    "meaning": "交換"
+  },
+  {
+    "kanji": "修理",
+    "answers": ["しゅうりします", "修理する"],
+    "meaning": "修理"
+  },
+  {
+    "kanji": "点検",
+    "answers": ["てんけんします", "点検する"],
+    "meaning": "檢查"
+  },
+  {
+    "kanji": "研究",
+    "answers": ["けんきゅうします", "研究する"],
+    "meaning": "研究"
+  },
+  {
+    "kanji": "発表",
+    "answers": ["はっぴょうします", "発表する"],
+    "meaning": "發表"
+  },
+  {
+    "kanji": "計画",
+    "answers": ["けいかくします", "計画する"],
+    "meaning": "計畫"
+  },
+  {
+    "kanji": "必要",
+    "answers": ["ひつようです", "必要だ"],
+    "meaning": "必要"
+  }
+]

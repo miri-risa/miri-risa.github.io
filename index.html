@@ -178,6 +178,16 @@
     const jsonSelector = document.getElementById('jsonSelector');
     const loadLessonButton = document.getElementById('loadLessonButton');
 
+    // Fisher-Yates shuffle algorithm
+    function shuffleArray(array) {
+      const shuffled = [...array];
+      for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+      }
+      return shuffled;
+    }
+
     // Fetch available JSON files from the repository
     async function fetchAvailableJsonFiles() {
       try {
@@ -318,7 +328,7 @@
     function refreshQuestions() {
       const count = parseInt(questionCountSelect.value);
       questions = [];
-      const shuffled = [...allQuestions].sort(() => Math.random() - 0.5);
+      const shuffled = shuffleArray(allQuestions);
       questions = shuffled.slice(0, count);
       currentIndex = 0;
       answerInput.value = '';

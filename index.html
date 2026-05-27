@@ -111,6 +111,22 @@
       </div>
  
       <div id="feedback" class="hidden p-4 rounded-2xl text-center font-medium"></div>
+      
+      <div id="roundEndButtons" class="hidden flex gap-3">
+        <button
+          id="newRoundButton"
+          class="flex-1 bg-blue-600 text-white py-4 rounded-2xl font-semibold hover:bg-blue-700 transition-colors"
+        >
+          New Round 🔄
+        </button>
+        <button
+          id="repeatRoundButton"
+          class="flex-1 bg-purple-600 text-white py-4 rounded-2xl font-semibold hover:bg-purple-700 transition-colors"
+        >
+          Repeat Round 🔁
+        </button>
+      </div>
+      
         <div class="bg-slate-950 border border-slate-800 rounded-2xl p-6 space-y-4">
       <h2 class="text-2xl font-bold text-white">
         README
@@ -164,6 +180,7 @@
     let currentIndex = 0;
     let score = 0;
     let availableJsonFiles = [];
+    let lastRoundQuestions = [];
  
     const jsonFileInput = document.getElementById('jsonFile');
     const loadedFile = document.getElementById('loadedFile');
@@ -177,6 +194,9 @@
     const feedback = document.getElementById('feedback');
     const jsonSelector = document.getElementById('jsonSelector');
     const loadLessonButton = document.getElementById('loadLessonButton');
+    const roundEndButtons = document.getElementById('roundEndButtons');
+    const newRoundButton = document.getElementById('newRoundButton');
+    const repeatRoundButton = document.getElementById('repeatRoundButton');
 
     // Fisher-Yates shuffle algorithm
     function shuffleArray(array) {
@@ -330,9 +350,25 @@
       questions = [];
       const shuffled = shuffleArray(allQuestions);
       questions = shuffled.slice(0, count);
+      lastRoundQuestions = [...questions];
       currentIndex = 0;
+      score = 0;
+      scoreDisplay.textContent = '0';
       answerInput.value = '';
       feedback.classList.add('hidden');
+      roundEndButtons.classList.add('hidden');
+      submitButton.textContent = '查看答案';
+      displayQuestion();
+    }
+
+    function repeatRound() {
+      questions = [...lastRoundQuestions];
+      currentIndex = 0;
+      score = 0;
+      scoreDisplay.textContent = '0';
+      answerInput.value = '';
+      feedback.classList.add('hidden');
+      roundEndButtons.classList.add('hidden');
       submitButton.textContent = '查看答案';
       displayQuestion();
     }
@@ -383,19 +419,21 @@
       feedback.className = 'p-4 rounded-2xl text-center font-medium bg-blue-900 text-blue-200';
       feedback.classList.remove('hidden');
       kanjiDisplay.textContent = '🎉';
-      submitButton.textContent = 'Start Over';
-      submitButton.onclick = refreshQuestions;
+      roundEndButtons.classList.remove('hidden');
     }
 
     submitButton.addEventListener('click', () => {
       if (currentIndex >= questions.length) {
-        refreshQuestions();
+        // This shouldn't happen since we show roundEndButtons instead
       } else if (feedback.classList.contains('hidden')) {
         checkAnswer();
       } else {
         nextQuestion();
       }
     });
+
+    newRoundButton.addEventListener('click', refreshQuestions);
+    repeatRoundButton.addEventListener('click', repeatRound);
 
     answerInput.addEventListener('keydown', (e) => {
       if (e.key === 'Enter') {

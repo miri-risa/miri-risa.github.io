@@ -23,6 +23,26 @@
     <div class="bg-slate-950 border border-slate-800 rounded-2xl p-4 space-y-4">
       <div>
         <label class="block text-sm font-semibold text-slate-200 mb-2">
+          選擇課程
+        </label>
+        <div class="flex gap-3">
+          <select
+            id="jsonSelector"
+            class="flex-1 p-3 rounded-xl bg-slate-900 border border-slate-700 text-white"
+          >
+            <option value="">Loading available lessons...</option>
+          </select>
+          <button
+            id="loadLessonButton"
+            class="px-5 py-3 rounded-xl bg-blue-600 text-white font-semibold hover:bg-blue-700 transition-colors"
+          >
+            Load Lesson
+          </button>
+        </div>
+      </div>
+
+      <div>
+        <label class="block text-sm font-semibold text-slate-200 mb-2">
           題目數量
         </label>
  
@@ -53,7 +73,7 @@
       />
  
       <div class="text-xs text-slate-400">
-        Loaded: <span id="loadedFile">sample-questions.json</span>
+        Loaded: <span id="loadedFile">Loading...</span>
       </div>
     </div>
  
@@ -98,12 +118,11 @@
  
       <div class="space-y-3 text-slate-300 text-sm leading-relaxed">
         <p>
-          This app loads kanji questions from a <code class="bg-slate-800 px-2 py-1 rounded">questions.json</code> file.
+          This app loads kanji questions from <code class="bg-slate-800 px-2 py-1 rounded">.json</code> files.
         </p>
  
         <p>
-          If a <code class="bg-slate-800 px-2 py-1 rounded">questions.json</code> file exists in the same folder as this HTML file,
-          it will automatically load on startup.
+          All JSON lesson files in the repository will be automatically discovered and available in the "Select Lesson" dropdown. Click "Load Lesson" to load your chosen JSON file.
         </p>
  
         <p>
@@ -137,1038 +156,235 @@
  
       </div>
     </div>
-  </div>
+   </div>
  
   <script>
-    const sampleQuestions = `[
-  {
-    "kanji": "危ない",
-    "answers": [
-      "abunai",
-      "あぶない"
-    ],
-    "meaning": "危險的"
-  },
-  {
-    "kanji": "赤い",
-    "answers": [
-      "akai",
-      "あかい"
-    ],
-    "meaning": "紅色的"
-  },
-  {
-    "kanji": "明るい",
-    "answers": [
-      "akarui",
-      "あかるい"
-    ],
-    "meaning": "明亮的"
-  },
-  {
-    "kanji": "甘い",
-    "answers": [
-      "amai",
-      "あまい"
-    ],
-    "meaning": "甜的"
-  },
-  {
-    "kanji": "青い",
-    "answers": [
-      "aoi",
-      "あおい"
-    ],
-    "meaning": "藍色的"
-  },
-  {
-    "kanji": "新しい",
-    "answers": [
-      "atarashii",
-      "あたらしい"
-    ],
-    "meaning": "新的"
-  },
-  {
-    "kanji": "暖かい",
-    "answers": [
-      "atatakai",
-      "あたたかい"
-    ],
-    "meaning": "溫暖的"
-  },
-  {
-    "kanji": "熱い",
-    "answers": [
-      "atsui",
-      "あつい"
-    ],
-    "meaning": "燙的"
-  },
-  {
-    "kanji": "厚い",
-    "answers": [
-      "atsui",
-      "あつい"
-    ],
-    "meaning": "厚的"
-  },
-  {
-    "kanji": "暑い",
-    "answers": [
-      "atsui",
-      "あつい"
-    ],
-    "meaning": "炎熱的"
-  },
-  {
-    "kanji": "便利",
-    "answers": [
-      "benri",
-      "べんり"
-    ],
-    "meaning": "方便的"
-  },
-  {
-    "kanji": "小さい",
-    "answers": [
-      "chiisai",
-      "ちいさい"
-    ],
-    "meaning": "小的"
-  },
-  {
-    "kanji": "近い",
-    "answers": [
-      "chikai",
-      "ちかい"
-    ],
-    "meaning": "近的"
-  },
-  {
-    "kanji": "大丈夫",
-    "answers": [
-      "daijoubu",
-      "だいじょうぶ"
-    ],
-    "meaning": "沒問題的"
-  },
-  {
-    "kanji": "大好き",
-    "answers": [
-      "daisuki",
-      "だいすき"
-    ],
-    "meaning": "非常喜歡"
-  },
-  {
-    "kanji": "古い",
-    "answers": [
-      "furui",
-      "ふるい"
-    ],
-    "meaning": "舊的"
-  },
-  {
-    "kanji": "太い",
-    "answers": [
-      "futoi",
-      "ふとい"
-    ],
-    "meaning": "粗的"
-  },
-  {
-    "kanji": "元気",
-    "answers": [
-      "genki",
-      "げんき"
-    ],
-    "meaning": "有精神的"
-  },
-  {
-    "kanji": "速い",
-    "answers": [
-      "hayai",
-      "はやい"
-    ],
-    "meaning": "快速的"
-  },
-  {
-    "kanji": "早い",
-    "answers": [
-      "hayai",
-      "はやい"
-    ],
-    "meaning": "早的"
-  },
-  {
-    "kanji": "下手",
-    "answers": [
-      "heta",
-      "へた"
-    ],
-    "meaning": "不擅長"
-  },
-  {
-    "kanji": "低い",
-    "answers": [
-      "hikui",
-      "ひくい"
-    ],
-    "meaning": "低的"
-  },
-  {
-    "kanji": "暇",
-    "answers": [
-      "hima",
-      "ひま"
-    ],
-    "meaning": "空閒的"
-  },
-  {
-    "kanji": "広い",
-    "answers": [
-      "hiroi",
-      "ひろい"
-    ],
-    "meaning": "寬廣的"
-  },
-  {
-    "kanji": "欲しい",
-    "answers": [
-      "hoshii",
-      "ほしい"
-    ],
-    "meaning": "想要的"
-  },
-  {
-    "kanji": "細い",
-    "answers": [
-      "hosoi",
-      "ほそい"
-    ],
-    "meaning": "細的"
-  },
-  {
-    "kanji": "忙しい",
-    "answers": [
-      "isogashii",
-      "いそがしい"
-    ],
-    "meaning": "忙碌的"
-  },
-  {
-    "kanji": "痛い",
-    "answers": [
-      "itai",
-      "いたい"
-    ],
-    "meaning": "痛的"
-  },
-  {
-    "kanji": "嫌",
-    "answers": [
-      "iya",
-      "いや"
-    ],
-    "meaning": "討厭的"
-  },
-  {
-    "kanji": "丈夫",
-    "answers": [
-      "joubu",
-      "じょうぶ"
-    ],
-    "meaning": "堅固的"
-  },
-  {
-    "kanji": "上手",
-    "answers": [
-      "jouzu",
-      "じょうず"
-    ],
-    "meaning": "擅長的"
-  },
-  {
-    "kanji": "辛い",
-    "answers": [
-      "karai",
-      "からい"
-    ],
-    "meaning": "辣的"
-  },
-  {
-    "kanji": "軽い",
-    "answers": [
-      "karui",
-      "かるい"
-    ],
-    "meaning": "輕的"
-  },
-  {
-    "kanji": "可愛い",
-    "answers": [
-      "kawaii",
-      "かわいい"
-    ],
-    "meaning": "可愛的"
-  },
-  {
-    "kanji": "黄色い",
-    "answers": [
-      "kiiroi",
-      "きいろい"
-    ],
-    "meaning": "黃色的"
-  },
-  {
-    "kanji": "嫌い",
-    "answers": [
-      "kirai",
-      "きらい"
-    ],
-    "meaning": "討厭"
-  },
-  {
-    "kanji": "綺麗",
-    "answers": [
-      "kirei",
-      "きれい"
-    ],
-    "meaning": "漂亮的"
-  },
-  {
-    "kanji": "汚い",
-    "answers": [
-      "kitanai",
-      "きたない"
-    ],
-    "meaning": "髒的"
-  },
-  {
-    "kanji": "暗い",
-    "answers": [
-      "kurai",
-      "くらい"
-    ],
-    "meaning": "昏暗的"
-  },
-  {
-    "kanji": "黒い",
-    "answers": [
-      "kuroi",
-      "くろい"
-    ],
-    "meaning": "黑色的"
-  },
-  {
-    "kanji": "丸い",
-    "answers": [
-      "marui",
-      "まるい"
-    ],
-    "meaning": "圓的"
-  },
-  {
-    "kanji": "短い",
-    "answers": [
-      "mijikai",
-      "みじかい"
-    ],
-    "meaning": "短的"
-  },
-  {
-    "kanji": "難しい",
-    "answers": [
-      "muzukashii",
-      "むずかしい"
-    ],
-    "meaning": "困難的"
-  },
-  {
-    "kanji": "長い",
-    "answers": [
-      "nagai",
-      "ながい"
-    ],
-    "meaning": "長的"
-  },
-  {
-    "kanji": "賑やか",
-    "answers": [
-      "nigiyaka",
-      "にぎやか"
-    ],
-    "meaning": "熱鬧的"
-  },
-  {
-    "kanji": "美味しい",
-    "answers": [
-      "oishii",
-      "おいしい"
-    ],
-    "meaning": "好吃的"
-  },
-  {
-    "kanji": "重い",
-    "answers": [
-      "omoi",
-      "おもい"
-    ],
-    "meaning": "重的"
-  },
-  {
-    "kanji": "面白い",
-    "answers": [
-      "omoshiroi",
-      "おもしろい"
-    ],
-    "meaning": "有趣的"
-  },
-  {
-    "kanji": "多い",
-    "answers": [
-      "ooi",
-      "おおい"
-    ],
-    "meaning": "多的"
-  },
-  {
-    "kanji": "大きい",
-    "answers": [
-      "ookii",
-      "おおきい"
-    ],
-    "meaning": "大的"
-  },
-  {
-    "kanji": "遅い",
-    "answers": [
-      "osoi",
-      "おそい"
-    ],
-    "meaning": "慢的"
-  },
-  {
-    "kanji": "静か",
-    "answers": [
-      "shizuka",
-      "しずか"
-    ],
-    "meaning": "安靜的"
-  },
-  {
-    "kanji": "白い",
-    "answers": [
-      "shiroi",
-      "しろい"
-    ],
-    "meaning": "白色的"
-  },
-  {
-    "kanji": "涼しい",
-    "answers": [
-      "suzushii",
-      "すずしい"
-    ],
-    "meaning": "涼爽的"
-  },
-  {
-    "kanji": "寒い",
-    "answers": [
-      "samui",
-      "さむい"
-    ],
-    "meaning": "寒冷的"
-  },
-  {
-    "kanji": "狭い",
-    "answers": [
-      "semai",
-      "せまい"
-    ],
-    "meaning": "狹窄的"
-  },
-  {
-    "kanji": "背が高い",
-    "answers": [
-      "segatakai",
-      "せがたかい"
-    ],
-    "meaning": "個子高"
-  },
-  {
-    "kanji": "背が低い",
-    "answers": [
-      "segahikui",
-      "せがひくい"
-    ],
-    "meaning": "個子矮"
-  },
-  {
-    "kanji": "少ない",
-    "answers": [
-      "sukunai",
-      "すくない"
-    ],
-    "meaning": "少的"
-  },
-  {
-    "kanji": "すごい",
-    "answers": [
-      "sugoi",
-      "すごい"
-    ],
-    "meaning": "厲害的"
-  },
-  {
-    "kanji": "高い",
-    "answers": [
-      "takai",
-      "たかい"
-    ],
-    "meaning": "高／貴的"
-  },
-  {
-    "kanji": "楽しい",
-    "answers": [
-      "tanoshii",
-      "たのしい"
-    ],
-    "meaning": "開心的"
-  },
-  {
-    "kanji": "小さな",
-    "answers": [
-      "chiisana",
-      "ちいさな"
-    ],
-    "meaning": "小小的"
-  },
-  {
-    "kanji": "冷たい",
-    "answers": [
-      "tsumetai",
-      "つめたい"
-    ],
-    "meaning": "冰冷的"
-  },
-  {
-    "kanji": "強い",
-    "answers": [
-      "tsuyoi",
-      "つよい"
-    ],
-    "meaning": "強的"
-  },
-  {
-    "kanji": "遠い",
-    "answers": [
-      "tooi",
-      "とおい"
-    ],
-    "meaning": "遠的"
-  },
-  {
-    "kanji": "つまらない",
-    "answers": [
-      "tsumaranai",
-      "つまらない"
-    ],
-    "meaning": "無聊的"
-  },
-  {
-    "kanji": "冷い",
-    "answers": [
-      "tsumetai",
-      "つめたい"
-    ],
-    "meaning": "冷的"
-  },
-  {
-    "kanji": "悪い",
-    "answers": [
-      "warui",
-      "わるい"
-    ],
-    "meaning": "壞的"
-  },
-  {
-    "kanji": "安い",
-    "answers": [
-      "yasui",
-      "やすい"
-    ],
-    "meaning": "便宜的"
-  },
-  {
-    "kanji": "優しい",
-    "answers": [
-      "yasashii",
-      "やさしい"
-    ],
-    "meaning": "溫柔的"
-  },
-  {
-    "kanji": "弱い",
-    "answers": [
-      "yowai",
-      "よわい"
-    ],
-    "meaning": "弱的"
-  },
-  {
-    "kanji": "安心",
-    "answers": [
-      "anshin",
-      "あんしん"
-    ],
-    "meaning": "安心的"
-  },
-  {
-    "kanji": "安全",
-    "answers": [
-      "anzen",
-      "あんぜん"
-    ],
-    "meaning": "安全的"
-  },
-  {
-    "kanji": "浅い",
-    "answers": [
-      "asai",
-      "あさい"
-    ],
-    "meaning": "淺的"
-  },
-  {
-    "kanji": "大事",
-    "answers": [
-      "daiji",
-      "だいじ"
-    ],
-    "meaning": "重要的"
-  },
-  {
-    "kanji": "不便",
-    "answers": [
-      "fuben",
-      "ふべん"
-    ],
-    "meaning": "不方便的"
-  },
-  {
-    "kanji": "深い",
-    "answers": [
-      "fukai",
-      "ふかい"
-    ],
-    "meaning": "深的"
-  },
-  {
-    "kanji": "複雑",
-    "answers": [
-      "fukuzatsu",
-      "ふくざつ"
-    ],
-    "meaning": "複雜的"
-  },
-  {
-    "kanji": "恥ずかしい",
-    "answers": [
-      "hazukashii",
-      "はずかしい"
-    ],
-    "meaning": "害羞的"
-  },
-  {
-    "kanji": "変",
-    "answers": [
-      "hen",
-      "へん"
-    ],
-    "meaning": "奇怪的"
-  },
-  {
-    "kanji": "酷い",
-    "answers": [
-      "hidoi",
-      "ひどい"
-    ],
-    "meaning": "糟糕的"
-  },
-  {
-    "kanji": "自由",
-    "answers": [
-      "jiyuu",
-      "じゆう"
-    ],
-    "meaning": "自由的"
-  },
-  {
-    "kanji": "十分",
-    "answers": [
-      "juubun",
-      "じゅうぶん"
-    ],
-    "meaning": "足夠的"
-  },
-  {
-    "kanji": "悲しい",
-    "answers": [
-      "kanashii",
-      "かなしい"
-    ],
-    "meaning": "悲傷的"
-  },
-  {
-    "kanji": "簡単",
-    "answers": [
-      "kantan",
-      "かんたん"
-    ],
-    "meaning": "簡單的"
-  },
-  {
-    "kanji": "硬い",
-    "answers": [
-      "katai",
-      "かたい"
-    ],
-    "meaning": "硬的"
-  },
-  {
-    "kanji": "厳しい",
-    "answers": [
-      "kibishii",
-      "きびしい"
-    ],
-    "meaning": "嚴格的"
-  },
-  {
-    "kanji": "危険",
-    "answers": [
-      "kiken",
-      "きけん"
-    ],
-    "meaning": "危險的"
-  },
-  {
-    "kanji": "細かい",
-    "answers": [
-      "komakai",
-      "こまかい"
-    ],
-    "meaning": "細微的"
-  },
-  {
-    "kanji": "怖い",
-    "answers": [
-      "kowai",
-      "こわい"
-    ],
-    "meaning": "可怕的"
-  },
-  {
-    "kanji": "珍しい",
-    "answers": [
-      "mezurashii",
-      "めずらしい"
-    ],
-    "meaning": "稀奇的"
-  },
-  {
-    "kanji": "無理",
-    "answers": [
-      "muri",
-      "むり"
-    ],
-    "meaning": "勉強的／不可能的"
-  },
-  {
-    "kanji": "眠い",
-    "answers": [
-      "nemui",
-      "ねむい"
-    ],
-    "meaning": "睏的"
-  },
-  {
-    "kanji": "苦い",
-    "answers": [
-      "nigai",
-      "にがい"
-    ],
-    "meaning": "苦的"
-  },
-  {
-    "kanji": "可笑しい",
-    "answers": [
-      "okashii",
-      "おかしい"
-    ],
-    "meaning": "奇怪／好笑的"
-  },
-  {
-    "kanji": "寂しい",
-    "answers": [
-      "sabishii",
-      "さびしい"
-    ],
-    "meaning": "寂寞的"
-  },
-  {
-    "kanji": "親切",
-    "answers": [
-      "shinsetsu",
-      "しんせつ"
-    ],
-    "meaning": "親切的"
-  },
-  {
-    "kanji": "素晴らしい",
-    "answers": [
-      "subarashii",
-      "すばらしい"
-    ],
-    "meaning": "精彩的"
-  },
-  {
-    "kanji": "正しい",
-    "answers": [
-      "tadashii",
-      "ただしい"
-    ],
-    "meaning": "正確的"
-  },
-  {
-    "kanji": "丁寧",
-    "answers": [
-      "teinei",
-      "ていねい"
-    ],
-    "meaning": "有禮貌的"
-  },
-  {
-    "kanji": "特別",
-    "answers": [
-      "tokubetsu",
-      "とくべつ"
-    ],
-    "meaning": "特別的"
-  },
-  {
-    "kanji": "嬉しい",
-    "answers": [
-      "ureshii",
-      "うれしい"
-    ],
-    "meaning": "開心的"
-  },
-  {
-    "kanji": "美しい",
-    "answers": [
-      "utsukushii",
-      "うつくしい"
-    ],
-    "meaning": "美麗的"
-  },
-  {
-    "kanji": "柔らかい",
-    "answers": [
-      "yawarakai",
-      "やわらかい"
-    ],
-    "meaning": "柔軟的"
-  },
-  {
-    "kanji": "残念",
-    "answers": [
-      "zannen",
-      "ざんねん"
-    ],
-    "meaning": "可惜的"
-  }
-    ]`;
- 
     let questions = [];
     let allQuestions = [];
     let currentIndex = 0;
     let score = 0;
+    let availableJsonFiles = [];
  
     const jsonFileInput = document.getElementById('jsonFile');
     const loadedFile = document.getElementById('loadedFile');
     const questionCountSelect = document.getElementById('questionCount');
-    const kanjiDisplay = document.getElementById('kanjiDisplay');
-    const answerInput = document.getElementById('answerInput');
-    const submitButton = document.getElementById('submitButton');
-    const feedback = document.getElementById('feedback');
-    const scoreDisplay = document.getElementById('scoreDisplay');
     const refreshButton = document.getElementById('refreshQuestions');
+    const submitButton = document.getElementById('submitButton');
+    const answerInput = document.getElementById('answerInput');
+    const kanjiDisplay = document.getElementById('kanjiDisplay');
     const questionCounter = document.getElementById('questionCounter');
- 
-    // Function to load questions.json on page startup
-    async function loadQuestionsFromFile() {
+    const scoreDisplay = document.getElementById('scoreDisplay');
+    const feedback = document.getElementById('feedback');
+    const jsonSelector = document.getElementById('jsonSelector');
+    const loadLessonButton = document.getElementById('loadLessonButton');
+
+    // Fetch available JSON files from the repository
+    async function fetchAvailableJsonFiles() {
       try {
-        const response = await fetch('questions.json');
-        if (response.ok) {
-          const data = await response.json();
-          allQuestions = data;
-          questions = [...data];
-          loadedFile.textContent = 'questions.json';
-          populateQuestionCount();
-          loadNextQuestion();
-        } else {
-          throw new Error('questions.json not found');
-        }
+        const response = await fetch('https://api.github.com/repos/miri-risa/miri-risa.github.io/contents/');
+        const data = await response.json();
+        
+        availableJsonFiles = data
+          .filter(file => file.name.endsWith('.json'))
+          .map(file => ({
+            name: file.name,
+            url: file.download_url
+          }));
+
+        populateJsonSelector(availableJsonFiles);
+        loadedFile.textContent = 'No lesson loaded. Select and click "Load Lesson"';
       } catch (error) {
-        console.log('questions.json not found, using sample questions:', error);
-        // Fall back to sample questions
-        allQuestions = JSON.parse(sampleQuestions);
-        questions = [...allQuestions];
-        populateQuestionCount();
-        loadNextQuestion();
+        console.error('Error fetching JSON files:', error);
+        loadedFile.textContent = 'Error loading files';
       }
     }
- 
-    // Call loadQuestionsFromFile when DOM is ready
-    document.addEventListener('DOMContentLoaded', loadQuestionsFromFile);
- 
-    function populateQuestionCount() {
-      const counts = [5, 10, 15, 20, 30, 50];
-      questionCountSelect.innerHTML = '';
-      counts.forEach(count => {
-        if (count <= allQuestions.length) {
-          const option = document.createElement('option');
-          option.value = count;
-          option.textContent = count;
-          questionCountSelect.appendChild(option);
-        }
-      });
-      if (questionCountSelect.options.length > 0) {
-        questionCountSelect.value = questionCountSelect.options[0].value;
-      }
-    }
- 
-    function shuffleArray(array) {
-      const shuffled = [...array];
-      for (let i = shuffled.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-      }
-      return shuffled;
-    }
- 
-    function loadNextQuestion() {
-      if (currentIndex >= questions.length) {
-        kanjiDisplay.textContent = '完成！';
-        answerInput.disabled = true;
-        submitButton.disabled = true;
+
+    // Populate the JSON selector dropdown
+    function populateJsonSelector(jsonFiles) {
+      jsonSelector.innerHTML = '';
+      
+      if (jsonFiles.length === 0) {
+        const option = document.createElement('option');
+        option.textContent = 'No JSON files found';
+        option.disabled = true;
+        jsonSelector.appendChild(option);
+        loadLessonButton.disabled = true;
         return;
       }
- 
-      const question = questions[currentIndex];
-      kanjiDisplay.textContent = question.kanji;
-      answerInput.value = '';
-      answerInput.focus();
-      feedback.classList.add('hidden');
-      questionCounter.textContent = `${currentIndex + 1} / ${questions.length}`;
+
+      const defaultOption = document.createElement('option');
+      defaultOption.value = '';
+      defaultOption.textContent = 'Select a lesson...';
+      jsonSelector.appendChild(defaultOption);
+
+      jsonFiles.forEach(file => {
+        const option = document.createElement('option');
+        option.value = file.url;
+        option.textContent = file.name;
+        jsonSelector.appendChild(option);
+      });
+
+      loadLessonButton.disabled = false;
     }
- 
-    function checkAnswer() {
-      if (currentIndex >= questions.length) return;
- 
-      const question = questions[currentIndex];
-      const userAnswer = answerInput.value.toLowerCase().trim();
-      const correctAnswers = question.answers.map(a => a.toLowerCase().trim());
- 
-      if (correctAnswers.includes(userAnswer)) {
-        feedback.textContent = `✓ 正確! ${question.meaning}`;
-        feedback.className = 'p-4 rounded-2xl text-center font-medium bg-green-900 text-green-200';
-        score++;
-        scoreDisplay.textContent = score;
+
+    // Load Lesson button handler
+    loadLessonButton.addEventListener('click', () => {
+      const selectedUrl = jsonSelector.value;
+      const selectedIndex = jsonSelector.selectedIndex;
+      
+      if (selectedUrl && selectedIndex > 0) {
+        const selectedName = jsonSelector.options[selectedIndex].text;
+        loadJsonFile(selectedUrl, selectedName);
       } else {
-        const answers = question.answers.join(' / ');
-        feedback.textContent = `✗ 錯誤。正確答案: ${answers} (${question.meaning})`;
-        feedback.className = 'p-4 rounded-2xl text-center font-medium bg-red-900 text-red-200';
-      }
- 
-      feedback.classList.remove('hidden');
-      submitButton.textContent = '下一題 →';
- 
-      if (currentIndex === questions.length - 1) {
-        submitButton.textContent = '完成';
-      }
-    }
- 
-    function nextQuestion() {
-      currentIndex++;
-      loadNextQuestion();
-      submitButton.textContent = '查看答案';
-    }
- 
-    submitButton.addEventListener('click', () => {
-      if (submitButton.textContent === '查看答案') {
-        checkAnswer();
-      } else {
-        nextQuestion();
+        alert('Please select a lesson first');
       }
     });
- 
-    answerInput.addEventListener('keypress', event => {
-      if (event.key === 'Enter') {
-        if (submitButton.textContent === '查看答案') {
-          checkAnswer();
+
+    // Load JSON file from URL
+    async function loadJsonFile(url, fileName) {
+      try {
+        loadedFile.textContent = 'Loading...';
+        const response = await fetch(url);
+        const jsonData = await response.json();
+        
+        if (Array.isArray(jsonData) && jsonData.length > 0) {
+          allQuestions = jsonData;
+          loadedFile.textContent = fileName;
+          score = 0;
+          scoreDisplay.textContent = '0';
+          populateQuestionCount();
+          refreshQuestions();
         } else {
-          nextQuestion();
+          loadedFile.textContent = 'Invalid JSON format';
+          alert('Invalid JSON format. Please use the correct template.');
         }
+      } catch (error) {
+        console.error('Error loading JSON file:', error);
+        loadedFile.textContent = 'Error loading: ' + fileName;
+        alert('Error loading file. Check console for details.');
       }
-    });
- 
-    jsonFileInput.addEventListener('change', event => {
-      const file = event.target.files[0];
+    }
+
+    // File upload handler
+    jsonFileInput.addEventListener('change', (e) => {
+      const file = e.target.files[0];
       if (file) {
         const reader = new FileReader();
-        reader.onload = e => {
+        reader.onload = (event) => {
           try {
-            const data = JSON.parse(e.target.result);
-            allQuestions = data;
-            questions = [...data];
-            currentIndex = 0;
-            score = 0;
-            scoreDisplay.textContent = '0';
-            loadedFile.textContent = file.name;
-            populateQuestionCount();
-            loadNextQuestion();
+            const jsonData = JSON.parse(event.target.result);
+            if (Array.isArray(jsonData) && jsonData.length > 0) {
+              allQuestions = jsonData;
+              loadedFile.textContent = file.name;
+              score = 0;
+              scoreDisplay.textContent = '0';
+              populateQuestionCount();
+              refreshQuestions();
+            } else {
+              alert('Invalid JSON format. Please use the correct template.');
+            }
           } catch (error) {
-            alert('Invalid JSON file');
+            alert('Error parsing JSON file');
           }
         };
         reader.readAsText(file);
       }
     });
- 
-    refreshButton.addEventListener('click', () => {
-      const selectedCount = parseInt(questionCountSelect.value);
-      questions = shuffleArray(allQuestions).slice(0, selectedCount);
+
+    function populateQuestionCount() {
+      questionCountSelect.innerHTML = '';
+      for (let i = 1; i <= Math.min(allQuestions.length, 20); i++) {
+        const option = document.createElement('option');
+        option.value = i;
+        option.textContent = i;
+        questionCountSelect.appendChild(option);
+      }
+      questionCountSelect.value = Math.min(10, allQuestions.length);
+    }
+
+    function refreshQuestions() {
+      const count = parseInt(questionCountSelect.value);
+      questions = [];
+      const shuffled = [...allQuestions].sort(() => Math.random() - 0.5);
+      questions = shuffled.slice(0, count);
       currentIndex = 0;
-      score = 0;
-      scoreDisplay.textContent = '0';
-      loadNextQuestion();
-    });
- 
-    // Initialize on page load if loadQuestionsFromFile doesn't run
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', () => {
-        if (allQuestions.length === 0) {
-          loadQuestionsFromFile();
-        }
-      });
-    } else {
-      if (allQuestions.length === 0) {
-        loadQuestionsFromFile();
+      answerInput.value = '';
+      feedback.classList.add('hidden');
+      submitButton.textContent = '查看答案';
+      displayQuestion();
+    }
+
+    function displayQuestion() {
+      if (currentIndex < questions.length) {
+        const question = questions[currentIndex];
+        kanjiDisplay.textContent = question.kanji;
+        questionCounter.textContent = `${currentIndex + 1} / ${questions.length}`;
+        answerInput.focus();
+      } else {
+        showResults();
       }
     }
+
+    function checkAnswer() {
+      const userAnswer = answerInput.value.trim().toLowerCase();
+      const question = questions[currentIndex];
+      const isCorrect = question.answers.some(answer => 
+        answer.toLowerCase() === userAnswer
+      );
+
+      if (isCorrect) {
+        score++;
+        scoreDisplay.textContent = score;
+        feedback.textContent = `✓ Correct! ${question.meaning}`;
+        feedback.className = 'p-4 rounded-2xl text-center font-medium bg-green-900 text-green-200';
+      } else {
+        feedback.textContent = `✗ Wrong. Correct answer: ${question.answers.join(' / ')} (${question.meaning})`;
+        feedback.className = 'p-4 rounded-2xl text-center font-medium bg-red-900 text-red-200';
+      }
+
+      feedback.classList.remove('hidden');
+      submitButton.textContent = 'Next →';
+    }
+
+    function nextQuestion() {
+      currentIndex++;
+      answerInput.value = '';
+      feedback.classList.add('hidden');
+      submitButton.textContent = '查看答案';
+      displayQuestion();
+    }
+
+    function showResults() {
+      const percentage = Math.round((score / questions.length) * 100);
+      feedback.textContent = `Quiz Complete! You scored ${score}/${questions.length} (${percentage}%)`;
+      feedback.className = 'p-4 rounded-2xl text-center font-medium bg-blue-900 text-blue-200';
+      feedback.classList.remove('hidden');
+      kanjiDisplay.textContent = '🎉';
+      submitButton.textContent = 'Start Over';
+      submitButton.onclick = refreshQuestions;
+    }
+
+    submitButton.addEventListener('click', () => {
+      if (currentIndex >= questions.length) {
+        refreshQuestions();
+      } else if (feedback.classList.contains('hidden')) {
+        checkAnswer();
+      } else {
+        nextQuestion();
+      }
+    });
+
+    answerInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        submitButton.click();
+      }
+    });
+
+    refreshButton.addEventListener('click', refreshQuestions);
+    questionCountSelect.addEventListener('change', refreshQuestions);
+
+    // Initialize on page load
+    fetchAvailableJsonFiles();
   </script>
 </body>
 </html>

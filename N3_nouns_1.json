@@ -1,0 +1,827 @@
+[
+  {
+    "kanji": "影響",
+    "answers": ["eikyou", "えいきょう"],
+    "meaning": "影響"
+  },
+  {
+    "kanji": "環境",
+    "answers": ["kankyou", "かんきょう"],
+    "meaning": "環境"
+  },
+  {
+    "kanji": "状況",
+    "answers": ["joukyou", "じょうきょう"],
+    "meaning": "狀況"
+  },
+  {
+    "kanji": "関係",
+    "answers": ["kankei", "かんけい"],
+    "meaning": "關係"
+  },
+  {
+    "kanji": "責任",
+    "answers": ["sekinin", "せきにん"],
+    "meaning": "責任"
+  },
+  {
+    "kanji": "態度",
+    "answers": ["taido", "たいど"],
+    "meaning": "態度"
+  },
+  {
+    "kanji": "性格",
+    "answers": ["seikaku", "せいかく"],
+    "meaning": "性格"
+  },
+  {
+    "kanji": "能力",
+    "answers": ["nouryoku", "のうりょく"],
+    "meaning": "能力"
+  },
+  {
+    "kanji": "経験者",
+    "answers": ["keikensha", "けいけんしゃ"],
+    "meaning": "有經驗的人"
+  },
+  {
+    "kanji": "技術者",
+    "answers": ["gijutsusha", "ぎじゅつしゃ"],
+    "meaning": "技術人員"
+  },
+  {
+    "kanji": "意識",
+    "answers": ["ishiki", "いしき"],
+    "meaning": "意識"
+  },
+  {
+    "kanji": "感情",
+    "answers": ["kanjou", "かんじょう"],
+    "meaning": "感情"
+  },
+  {
+    "kanji": "印象",
+    "answers": ["inshou", "いんしょう"],
+    "meaning": "印象"
+  },
+  {
+    "kanji": "魅力",
+    "answers": ["miryoku", "みりょく"],
+    "meaning": "魅力"
+  },
+  {
+    "kanji": "価値",
+    "answers": ["kachi", "かち"],
+    "meaning": "價值"
+  },
+  {
+    "kanji": "存在",
+    "answers": ["sonzai", "そんざい"],
+    "meaning": "存在"
+  },
+  {
+    "kanji": "現象",
+    "answers": ["genshou", "げんしょう"],
+    "meaning": "現象"
+  },
+  {
+    "kanji": "原因",
+    "answers": ["genin", "げんいん"],
+    "meaning": "原因"
+  },
+  {
+    "kanji": "結果",
+    "answers": ["kekka", "けっか"],
+    "meaning": "結果"
+  },
+  {
+    "kanji": "目的地",
+    "answers": ["mokutekichi", "もくてきち"],
+    "meaning": "目的地"
+  },
+  {
+    "kanji": "手段",
+    "answers": ["shudan", "しゅだん"],
+    "meaning": "手段"
+  },
+  {
+    "kanji": "方法",
+    "answers": ["houhou", "ほうほう"],
+    "meaning": "方法"
+  },
+  {
+    "kanji": "制度",
+    "answers": ["seido", "せいど"],
+    "meaning": "制度"
+  },
+  {
+    "kanji": "組織",
+    "answers": ["soshiki", "そしき"],
+    "meaning": "組織"
+  },
+  {
+    "kanji": "企業",
+    "answers": ["kigyou", "きぎょう"],
+    "meaning": "企業"
+  },
+  {
+    "kanji": "経営",
+    "answers": ["keiei", "けいえい"],
+    "meaning": "經營"
+  },
+  {
+    "kanji": "資源",
+    "answers": ["shigen", "しげん"],
+    "meaning": "資源"
+  },
+  {
+    "kanji": "資金",
+    "answers": ["shikin", "しきん"],
+    "meaning": "資金"
+  },
+  {
+    "kanji": "収入",
+    "answers": ["shuunyuu", "しゅうにゅう"],
+    "meaning": "收入"
+  },
+  {
+    "kanji": "支出",
+    "answers": ["shishutsu", "ししゅつ"],
+    "meaning": "支出"
+  },
+  {
+    "kanji": "利益",
+    "answers": ["rieki", "りえき"],
+    "meaning": "利益"
+  },
+  {
+    "kanji": "損失",
+    "answers": ["sonshitsu", "そんしつ"],
+    "meaning": "損失"
+  },
+  {
+    "kanji": "景気",
+    "answers": ["keiki", "けいき"],
+    "meaning": "景氣"
+  },
+  {
+    "kanji": "不景気",
+    "answers": ["fukeiki", "ふけいき"],
+    "meaning": "不景氣"
+  },
+  {
+    "kanji": "商品券",
+    "answers": ["shouhinken", "しょうひんけん"],
+    "meaning": "商品券"
+  },
+  {
+    "kanji": "契約",
+    "answers": ["keiyaku", "けいやく"],
+    "meaning": "契約"
+  },
+  {
+    "kanji": "条件",
+    "answers": ["jouken", "じょうけん"],
+    "meaning": "條件"
+  },
+  {
+    "kanji": "期限",
+    "answers": ["kigen", "きげん"],
+    "meaning": "期限"
+  },
+  {
+    "kanji": "予定表",
+    "answers": ["yoteihyou", "よていひょう"],
+    "meaning": "行程表"
+  },
+  {
+    "kanji": "日程",
+    "answers": ["nittei", "にってい"],
+    "meaning": "日程"
+  },
+  {
+    "kanji": "場面",
+    "answers": ["bamen", "ばめん"],
+    "meaning": "場面"
+  },
+  {
+    "kanji": "内容",
+    "answers": ["naiyou", "ないよう"],
+    "meaning": "內容"
+  },
+  {
+    "kanji": "項目",
+    "answers": ["koumoku", "こうもく"],
+    "meaning": "項目"
+  },
+  {
+    "kanji": "資料",
+    "answers": ["shiryou", "しりょう"],
+    "meaning": "資料"
+  },
+  {
+    "kanji": "情報源",
+    "answers": ["jouhougen", "じょうほうげん"],
+    "meaning": "資訊來源"
+  },
+  {
+    "kanji": "記事",
+    "answers": ["kiji", "きじ"],
+    "meaning": "報導"
+  },
+  {
+    "kanji": "見出し",
+    "answers": ["midashi", "みだし"],
+    "meaning": "標題"
+  },
+  {
+    "kanji": "著者",
+    "answers": ["chosha", "ちょしゃ"],
+    "meaning": "作者"
+  },
+  {
+    "kanji": "読者",
+    "answers": ["dokusha", "どくしゃ"],
+    "meaning": "讀者"
+  },
+  {
+    "kanji": "作品",
+    "answers": ["sakuhin", "さくひん"],
+    "meaning": "作品"
+  },
+  {
+    "kanji": "文学",
+    "answers": ["bungaku", "ぶんがく"],
+    "meaning": "文學"
+  },
+  {
+    "kanji": "表現",
+    "answers": ["hyougen", "ひょうげん"],
+    "meaning": "表現"
+  },
+  {
+    "kanji": "発表",
+    "answers": ["happyou", "はっぴょう"],
+    "meaning": "發表"
+  },
+  {
+    "kanji": "会話力",
+    "answers": ["kaiwaryoku", "かいわりょく"],
+    "meaning": "會話能力"
+  },
+  {
+    "kanji": "発音",
+    "answers": ["hatsuon", "はつおん"],
+    "meaning": "發音"
+  },
+  {
+    "kanji": "敬語",
+    "answers": ["keigo", "けいご"],
+    "meaning": "敬語"
+  },
+  {
+    "kanji": "単位",
+    "answers": ["tani", "たに"],
+    "meaning": "學分"
+  },
+  {
+    "kanji": "学科",
+    "answers": ["gakka", "がっか"],
+    "meaning": "學科"
+  },
+  {
+    "kanji": "教授",
+    "answers": ["kyouju", "きょうじゅ"],
+    "meaning": "教授"
+  },
+  {
+    "kanji": "研究室",
+    "answers": ["kenkyuushitsu", "けんきゅうしつ"],
+    "meaning": "研究室"
+  },
+  {
+    "kanji": "課題",
+    "answers": ["kadai", "かだい"],
+    "meaning": "課題"
+  },
+  {
+    "kanji": "論文",
+    "answers": ["ronbun", "ろんぶん"],
+    "meaning": "論文"
+  },
+  {
+    "kanji": "試験官",
+    "answers": ["shikengan", "しけんかん"],
+    "meaning": "考官"
+  },
+  {
+    "kanji": "実力",
+    "answers": ["jitsuryoku", "じつりょく"],
+    "meaning": "實力"
+  },
+  {
+    "kanji": "才能",
+    "answers": ["sainou", "さいのう"],
+    "meaning": "才能"
+  },
+  {
+    "kanji": "知識",
+    "answers": ["chishiki", "ちしき"],
+    "meaning": "知識"
+  },
+  {
+    "kanji": "記憶",
+    "answers": ["kioku", "きおく"],
+    "meaning": "記憶"
+  },
+  {
+    "kanji": "記録",
+    "answers": ["kiroku", "きろく"],
+    "meaning": "紀錄"
+  },
+  {
+    "kanji": "理解",
+    "answers": ["rikai", "りかい"],
+    "meaning": "理解"
+  },
+  {
+    "kanji": "判断",
+    "answers": ["handan", "はんだん"],
+    "meaning": "判斷"
+  },
+  {
+    "kanji": "決定",
+    "answers": ["kettei", "けってい"],
+    "meaning": "決定"
+  },
+  {
+    "kanji": "選択",
+    "answers": ["sentaku", "せんたく"],
+    "meaning": "選擇"
+  },
+  {
+    "kanji": "希望者",
+    "answers": ["kibousha", "きぼうしゃ"],
+    "meaning": "希望者"
+  },
+  {
+    "kanji": "参加者",
+    "answers": ["sankasha", "さんかしゃ"],
+    "meaning": "參加者"
+  },
+  {
+    "kanji": "観客",
+    "answers": ["kankyaku", "かんきゃく"],
+    "meaning": "觀眾"
+  },
+  {
+    "kanji": "観光客",
+    "answers": ["kankoukaku", "かんこうきゃく"],
+    "meaning": "觀光客"
+  },
+  {
+    "kanji": "乗客",
+    "answers": ["joukyaku", "じょうきゃく"],
+    "meaning": "乘客"
+  },
+  {
+    "kanji": "患者",
+    "answers": ["kanja", "かんじゃ"],
+    "meaning": "病人"
+  },
+  {
+    "kanji": "看護師",
+    "answers": ["kangoshi", "かんごし"],
+    "meaning": "護士"
+  },
+  {
+    "kanji": "症状",
+    "answers": ["shoujou", "しょうじょう"],
+    "meaning": "症狀"
+  },
+  {
+    "kanji": "診察",
+    "answers": ["shinsatsu", "しんさつ"],
+    "meaning": "診察"
+  },
+  {
+    "kanji": "治療",
+    "answers": ["chiryou", "ちりょう"],
+    "meaning": "治療"
+  },
+  {
+    "kanji": "手術",
+    "answers": ["shujutsu", "しゅじゅつ"],
+    "meaning": "手術"
+  },
+  {
+    "kanji": "健康法",
+    "answers": ["kenkouhou", "けんこうほう"],
+    "meaning": "健康法"
+  },
+  {
+    "kanji": "栄養",
+    "answers": ["eiyou", "えいよう"],
+    "meaning": "營養"
+  },
+  {
+    "kanji": "食欲",
+    "answers": ["shokuyoku", "しょくよく"],
+    "meaning": "食慾"
+  },
+  {
+    "kanji": "睡眠",
+    "answers": ["suimin", "すいみん"],
+    "meaning": "睡眠"
+  },
+  {
+    "kanji": "疲労",
+    "answers": ["hirou", "ひろう"],
+    "meaning": "疲勞"
+  },
+  {
+    "kanji": "運動場",
+    "answers": ["undoujou", "うんどうじょう"],
+    "meaning": "運動場"
+  },
+  {
+    "kanji": "競争",
+    "answers": ["kyousou", "きょうそう"],
+    "meaning": "競爭"
+  },
+  {
+    "kanji": "勝負",
+    "answers": ["shoubu", "しょうぶ"],
+    "meaning": "勝負"
+  },
+  {
+    "kanji": "優勝",
+    "answers": ["yuushou", "ゆうしょう"],
+    "meaning": "冠軍"
+  },
+  {
+    "kanji": "記者",
+    "answers": ["kisha", "きしゃ"],
+    "meaning": "記者"
+  },
+  {
+    "kanji": "放送",
+    "answers": ["housou", "ほうそう"],
+    "meaning": "廣播"
+  },
+  {
+    "kanji": "番組表",
+    "answers": ["bangumihyou", "ばんぐみひょう"],
+    "meaning": "節目表"
+  },
+  {
+    "kanji": "広告",
+    "answers": ["koukoku", "こうこく"],
+    "meaning": "廣告"
+  },
+  {
+    "kanji": "流行",
+    "answers": ["ryuukou", "りゅうこう"],
+    "meaning": "流行"
+  },
+  {
+    "kanji": "人気",
+    "answers": ["ninki", "にんき"],
+    "meaning": "人氣"
+  },
+  {
+    "kanji": "有名人",
+    "answers": ["yuumeijin", "ゆうめいじん"],
+    "meaning": "名人"
+  },
+  {
+    "kanji": "芸能界",
+    "answers": ["geinoukai", "げいのうかい"],
+    "meaning": "演藝圈"
+  },
+  {
+    "kanji": "舞台",
+    "answers": ["butai", "ぶたい"],
+    "meaning": "舞台"
+  },
+  {
+    "kanji": "演技",
+    "answers": ["engi", "えんぎ"],
+    "meaning": "演技"
+  },
+  {
+    "kanji": "音声",
+    "answers": ["onsei", "おんせい"],
+    "meaning": "聲音"
+  },
+  {
+    "kanji": "映像",
+    "answers": ["eizou", "えいぞう"],
+    "meaning": "影像"
+  },
+  {
+    "kanji": "画面",
+    "answers": ["gamen", "がめん"],
+    "meaning": "畫面"
+  },
+  {
+    "kanji": "機能",
+    "answers": ["kinou", "きのう"],
+    "meaning": "功能"
+  },
+  {
+    "kanji": "操作",
+    "answers": ["sousa", "そうさ"],
+    "meaning": "操作"
+  },
+  {
+    "kanji": "設定",
+    "answers": ["settei", "せってい"],
+    "meaning": "設定"
+  },
+  {
+    "kanji": "機械",
+    "answers": ["kikai", "きかい"],
+    "meaning": "機械"
+  },
+  {
+    "kanji": "設備",
+    "answers": ["setsubi", "せつび"],
+    "meaning": "設備"
+  },
+  {
+    "kanji": "工事",
+    "answers": ["kouji", "こうじ"],
+    "meaning": "工程"
+  },
+  {
+    "kanji": "建築",
+    "answers": ["kenchiku", "けんちく"],
+    "meaning": "建築"
+  },
+  {
+    "kanji": "構造",
+    "answers": ["kouzou", "こうぞう"],
+    "meaning": "構造"
+  },
+  {
+    "kanji": "表面",
+    "answers": ["hyoumen", "ひょうめん"],
+    "meaning": "表面"
+  },
+  {
+    "kanji": "内部",
+    "answers": ["naibu", "ないぶ"],
+    "meaning": "內部"
+  },
+  {
+    "kanji": "空間",
+    "answers": ["kuukan", "くうかん"],
+    "meaning": "空間"
+  },
+  {
+    "kanji": "距離感",
+    "answers": ["kyorikan", "きょりかん"],
+    "meaning": "距離感"
+  },
+  {
+    "kanji": "方向性",
+    "answers": ["houkousei", "ほうこうせい"],
+    "meaning": "方向性"
+  },
+  {
+    "kanji": "地域差",
+    "answers": ["chiikisa", "ちいきさ"],
+    "meaning": "地區差異"
+  },
+  {
+    "kanji": "人口減少",
+    "answers": ["jinkougenshou", "じんこうげんしょう"],
+    "meaning": "人口減少"
+  },
+  {
+    "kanji": "高齢者",
+    "answers": ["koureisha", "こうれいしゃ"],
+    "meaning": "高齡者"
+  },
+  {
+    "kanji": "若者",
+    "answers": ["wakamono", "わかもの"],
+    "meaning": "年輕人"
+  },
+  {
+    "kanji": "世代",
+    "answers": ["sedai", "せだい"],
+    "meaning": "世代"
+  },
+  {
+    "kanji": "家事",
+    "answers": ["kaji", "かじ"],
+    "meaning": "家務"
+  },
+  {
+    "kanji": "育児",
+    "answers": ["ikuji", "いくじ"],
+    "meaning": "育兒"
+  },
+  {
+    "kanji": "教育費",
+    "answers": ["kyouikuhi", "きょういくひ"],
+    "meaning": "教育費"
+  },
+  {
+    "kanji": "生活習慣",
+    "answers": ["seikatsushuukan", "せいかつしゅうかん"],
+    "meaning": "生活習慣"
+  },
+  {
+    "kanji": "交通事故",
+    "answers": ["koutsuujiko", "こうつうじこ"],
+    "meaning": "交通事故"
+  },
+  {
+    "kanji": "運転手",
+    "answers": ["untenshu", "うんてんしゅ"],
+    "meaning": "司機"
+  },
+  {
+    "kanji": "駐車場",
+    "answers": ["chuushajou", "ちゅうしゃじょう"],
+    "meaning": "停車場"
+  },
+  {
+    "kanji": "渋滞",
+    "answers": ["juutai", "じゅうたい"],
+    "meaning": "塞車"
+  },
+  {
+    "kanji": "移動",
+    "answers": ["idou", "いどう"],
+    "meaning": "移動"
+  },
+  {
+    "kanji": "到着",
+    "answers": ["touchaku", "とうちゃく"],
+    "meaning": "到達"
+  },
+  {
+    "kanji": "出発点",
+    "answers": ["shuppatsuten", "しゅっぱつてん"],
+    "meaning": "出發點"
+  },
+  {
+    "kanji": "観光地",
+    "answers": ["kankouchi", "かんこうち"],
+    "meaning": "觀光地"
+  },
+  {
+    "kanji": "温泉地",
+    "answers": ["onsenchi", "おんせんち"],
+    "meaning": "溫泉區"
+  },
+  {
+    "kanji": "宿泊費",
+    "answers": ["shukuhakuhi", "しゅくはくひ"],
+    "meaning": "住宿費"
+  },
+  {
+    "kanji": "旅行会社",
+    "answers": ["ryokougaisha", "りょこうがいしゃ"],
+    "meaning": "旅行社"
+  },
+  {
+    "kanji": "旅券",
+    "answers": ["ryoken", "りょけん"],
+    "meaning": "護照"
+  },
+  {
+    "kanji": "入国",
+    "answers": ["nyuukoku", "にゅうこく"],
+    "meaning": "入境"
+  },
+  {
+    "kanji": "出国",
+    "answers": ["shukkoku", "しゅっこく"],
+    "meaning": "出境"
+  },
+  {
+    "kanji": "税関",
+    "answers": ["zeikan", "ぜいかん"],
+    "meaning": "海關"
+  },
+  {
+    "kanji": "安全性",
+    "answers": ["anzensei", "あんぜんせい"],
+    "meaning": "安全性"
+  },
+  {
+    "kanji": "危険性",
+    "answers": ["kikensei", "きけんせい"],
+    "meaning": "危險性"
+  },
+  {
+    "kanji": "自然災害",
+    "answers": ["shizensaigai", "しぜんさいがい"],
+    "meaning": "自然災害"
+  },
+  {
+    "kanji": "地球温暖化",
+    "answers": ["chikyuuondanka", "ちきゅうおんだんか"],
+    "meaning": "全球暖化"
+  },
+  {
+    "kanji": "資源不足",
+    "answers": ["shigenbusoku", "しげんぶそく"],
+    "meaning": "資源不足"
+  },
+  {
+    "kanji": "社会問題",
+    "answers": ["shakaimondai", "しゃかいもんだい"],
+    "meaning": "社會問題"
+  },
+  {
+    "kanji": "犯罪",
+    "answers": ["hanzai", "はんざい"],
+    "meaning": "犯罪"
+  },
+  {
+    "kanji": "法律家",
+    "answers": ["houritsuka", "ほうりつか"],
+    "meaning": "法律專家"
+  },
+  {
+    "kanji": "政治家",
+    "answers": ["seijika", "せいじか"],
+    "meaning": "政治家"
+  },
+  {
+    "kanji": "国際関係",
+    "answers": ["kokusaikankei", "こくさいかんけい"],
+    "meaning": "國際關係"
+  },
+  {
+    "kanji": "文化交流",
+    "answers": ["bunkakouryuu", "ぶんかこうりゅう"],
+    "meaning": "文化交流"
+  },
+  {
+    "kanji": "伝統文化",
+    "answers": ["dentoubunka", "でんとうぶんか"],
+    "meaning": "傳統文化"
+  },
+  {
+    "kanji": "価値観",
+    "answers": ["kachikan", "かちかん"],
+    "meaning": "價值觀"
+  },
+  {
+    "kanji": "人生経験",
+    "answers": ["jinseikeiken", "じんせいけいけん"],
+    "meaning": "人生經驗"
+  },
+  {
+    "kanji": "将来性",
+    "answers": ["shouraisei", "しょうらいせい"],
+    "meaning": "發展性"
+  },
+  {
+    "kanji": "夢中",
+    "answers": ["muchuu", "むちゅう"],
+    "meaning": "著迷"
+  },
+  {
+    "kanji": "努力家",
+    "answers": ["doryokuka", "どりょくか"],
+    "meaning": "努力的人"
+  },
+  {
+    "kanji": "成功者",
+    "answers": ["seikousha", "せいこうしゃ"],
+    "meaning": "成功者"
+  },
+  {
+    "kanji": "失敗例",
+    "answers": ["shippairei", "しっぱいれい"],
+    "meaning": "失敗案例"
+  },
+  {
+    "kanji": "挑戦",
+    "answers": ["chousen", "ちょうせん"],
+    "meaning": "挑戰"
+  },
+  {
+    "kanji": "成長",
+    "answers": ["seichou", "せいちょう"],
+    "meaning": "成長"
+  },
+  {
+    "kanji": "変化",
+    "answers": ["henka", "へんか"],
+    "meaning": "變化"
+  },
+  {
+    "kanji": "進歩",
+    "answers": ["shinpo", "しんぽ"],
+    "meaning": "進步"
+  }
+]

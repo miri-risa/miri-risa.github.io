@@ -1,0 +1,522 @@
+[
+  {
+    "kanji": "曖昧",
+    "answers": ["aimai", "あいまい"],
+    "meaning": "曖昧"
+  },
+  {
+    "kanji": "明らか",
+    "answers": ["akiraka", "あきらか"],
+    "meaning": "明顯"
+  },
+  {
+    "kanji": "新た",
+    "answers": ["arata", "あらた"],
+    "meaning": "新的"
+  },
+  {
+    "kanji": "偉大",
+    "answers": ["idai", "いだい"],
+    "meaning": "偉大"
+  },
+  {
+    "kanji": "意外",
+    "answers": ["igai", "いがい"],
+    "meaning": "意外"
+  },
+  {
+    "kanji": "異常",
+    "answers": ["ijou", "いじょう"],
+    "meaning": "異常"
+  },
+  {
+    "kanji": "嫌",
+    "answers": ["iya", "いや"],
+    "meaning": "討厭"
+  },
+  {
+    "kanji": "陰気",
+    "answers": ["inki", "いんき"],
+    "meaning": "陰沉"
+  },
+  {
+    "kanji": "上手",
+    "answers": ["uwate", "うわて"],
+    "meaning": "高明"
+  },
+  {
+    "kanji": "大げさ",
+    "answers": ["oogesa", "おおげさ"],
+    "meaning": "誇張"
+  },
+  {
+    "kanji": "穏やか",
+    "answers": ["odayaka", "おだやか"],
+    "meaning": "平穩"
+  },
+  {
+    "kanji": "確か",
+    "answers": ["tashika", "たしか"],
+    "meaning": "確實"
+  },
+  {
+    "kanji": "勝手",
+    "answers": ["katte", "かって"],
+    "meaning": "任性"
+  },
+  {
+    "kanji": "活発",
+    "answers": ["kappatsu", "かっぱつ"],
+    "meaning": "活潑"
+  },
+  {
+    "kanji": "肝心",
+    "answers": ["kanjin", "かんじん"],
+    "meaning": "重要"
+  },
+  {
+    "kanji": "完全",
+    "answers": ["kanzen", "かんぜん"],
+    "meaning": "完全"
+  },
+  {
+    "kanji": "危険",
+    "answers": ["kiken", "きけん"],
+    "meaning": "危險"
+  },
+  {
+    "kanji": "器用",
+    "answers": ["kiyou", "きよう"],
+    "meaning": "靈巧"
+  },
+  {
+    "kanji": "急",
+    "answers": ["kyuu", "きゅう"],
+    "meaning": "突然"
+  },
+  {
+    "kanji": "巨大",
+    "answers": ["kyodai", "きょだい"],
+    "meaning": "巨大"
+  },
+  {
+    "kanji": "苦手",
+    "answers": ["nigate", "にがて"],
+    "meaning": "不擅長"
+  },
+  {
+    "kanji": "苦労",
+    "answers": ["kurou", "くろう"],
+    "meaning": "辛苦"
+  },
+  {
+    "kanji": "健康",
+    "answers": ["kenkou", "けんこう"],
+    "meaning": "健康"
+  },
+  {
+    "kanji": "豪華",
+    "answers": ["gouka", "ごうか"],
+    "meaning": "豪華"
+  },
+  {
+    "kanji": "困難",
+    "answers": ["konnan", "こんなん"],
+    "meaning": "困難"
+  },
+  {
+    "kanji": "最悪",
+    "answers": ["saiaku", "さいあく"],
+    "meaning": "最糟"
+  },
+  {
+    "kanji": "最低",
+    "answers": ["saitei", "さいてい"],
+    "meaning": "最低"
+  },
+  {
+    "kanji": "最高",
+    "answers": ["saikou", "さいこう"],
+    "meaning": "最高"
+  },
+  {
+    "kanji": "幸運",
+    "answers": ["kouun", "こううん"],
+    "meaning": "幸運"
+  },
+  {
+    "kanji": "残念",
+    "answers": ["zannen", "ざんねん"],
+    "meaning": "可惜"
+  },
+  {
+    "kanji": "自然",
+    "answers": ["shizen", "しぜん"],
+    "meaning": "自然"
+  },
+  {
+    "kanji": "静か",
+    "answers": ["shizuka", "しずか"],
+    "meaning": "安靜"
+  },
+  {
+    "kanji": "失礼",
+    "answers": ["shitsurei", "しつれい"],
+    "meaning": "失禮"
+  },
+  {
+    "kanji": "重大",
+    "answers": ["juudai", "じゅうだい"],
+    "meaning": "重大"
+  },
+  {
+    "kanji": "十分",
+    "answers": ["juubun", "じゅうぶん"],
+    "meaning": "充分"
+  },
+  {
+    "kanji": "正直",
+    "answers": ["shoujiki", "しょうじき"],
+    "meaning": "老實"
+  },
+  {
+    "kanji": "上等",
+    "answers": ["joutou", "じょうとう"],
+    "meaning": "高級"
+  },
+  {
+    "kanji": "新鮮",
+    "answers": ["shinsen", "しんせん"],
+    "meaning": "新鮮"
+  },
+  {
+    "kanji": "親切",
+    "answers": ["shinsetsu", "しんせつ"],
+    "meaning": "親切"
+  },
+  {
+    "kanji": "慎重",
+    "answers": ["shinchou", "しんちょう"],
+    "meaning": "慎重"
+  },
+  {
+    "kanji": "深刻",
+    "answers": ["shinkoku", "しんこく"],
+    "meaning": "嚴重"
+  },
+  {
+    "kanji": "心配",
+    "answers": ["shinpai", "しんぱい"],
+    "meaning": "擔心"
+  },
+  {
+    "kanji": "新米",
+    "answers": ["shinmai", "しんまい"],
+    "meaning": "新手"
+  },
+  {
+    "kanji": "好き",
+    "answers": ["suki", "すき"],
+    "meaning": "喜歡"
+  },
+  {
+    "kanji": "素直",
+    "answers": ["sunao", "すなお"],
+    "meaning": "坦率"
+  },
+  {
+    "kanji": "正確",
+    "answers": ["seikaku", "せいかく"],
+    "meaning": "正確"
+  },
+  {
+    "kanji": "積極的",
+    "answers": ["sekkyokuteki", "せっきょくてき"],
+    "meaning": "積極"
+  },
+  {
+    "kanji": "贅沢",
+    "answers": ["zeitaku", "ぜいたく"],
+    "meaning": "奢侈"
+  },
+  {
+    "kanji": "絶対",
+    "answers": ["zettai", "ぜったい"],
+    "meaning": "絕對"
+  },
+  {
+    "kanji": "大事",
+    "answers": ["daiji", "だいじ"],
+    "meaning": "重要"
+  },
+  {
+    "kanji": "大切",
+    "answers": ["taisetsu", "たいせつ"],
+    "meaning": "珍貴"
+  },
+  {
+    "kanji": "大変",
+    "answers": ["taihen", "たいへん"],
+    "meaning": "嚴重"
+  },
+  {
+    "kanji": "単純",
+    "answers": ["tanjun", "たんじゅん"],
+    "meaning": "單純"
+  },
+  {
+    "kanji": "丁寧",
+    "answers": ["teinei", "ていねい"],
+    "meaning": "仔細"
+  },
+  {
+    "kanji": "適当",
+    "answers": ["tekitou", "てきとう"],
+    "meaning": "適當"
+  },
+  {
+    "kanji": "得意",
+    "answers": ["tokui", "とくい"],
+    "meaning": "擅長"
+  },
+  {
+    "kanji": "特別",
+    "answers": ["tokubetsu", "とくべつ"],
+    "meaning": "特別"
+  },
+  {
+    "kanji": "独特",
+    "answers": ["dokutoku", "どくとく"],
+    "meaning": "獨特"
+  },
+  {
+    "kanji": "苦しい",
+    "answers": ["kurushii", "くるしい"],
+    "meaning": "痛苦"
+  },
+  {
+    "kanji": "詳しい",
+    "answers": ["kuwashii", "くわしい"],
+    "meaning": "詳細"
+  },
+  {
+    "kanji": "騒がしい",
+    "answers": ["sawagashii", "さわがしい"],
+    "meaning": "吵鬧"
+  },
+  {
+    "kanji": "親しい",
+    "answers": ["shitashii", "したしい"],
+    "meaning": "親密"
+  },
+  {
+    "kanji": "鋭い",
+    "answers": ["surudoi", "するどい"],
+    "meaning": "尖銳"
+  },
+  {
+    "kanji": "頼もしい",
+    "answers": ["tanomoshii", "たのもしい"],
+    "meaning": "可靠"
+  },
+  {
+    "kanji": "眠い",
+    "answers": ["nemui", "ねむい"],
+    "meaning": "睏"
+  },
+  {
+    "kanji": "激しい",
+    "answers": ["hageshii", "はげしい"],
+    "meaning": "激烈"
+  },
+  {
+    "kanji": "等しい",
+    "answers": ["hitoshii", "ひとしい"],
+    "meaning": "相等"
+  },
+  {
+    "kanji": "眩しい",
+    "answers": ["mabushii", "まぶしい"],
+    "meaning": "耀眼"
+  },
+  {
+    "kanji": "珍しい",
+    "answers": ["mezurashii", "めずらしい"],
+    "meaning": "罕見"
+  },
+  {
+    "kanji": "優しい",
+    "answers": ["yasashii", "やさしい"],
+    "meaning": "溫柔"
+  },
+  {
+    "kanji": "宜しい",
+    "answers": ["yoroshii", "よろしい"],
+    "meaning": "好的"
+  },
+  {
+    "kanji": "悪質",
+    "answers": ["akushitsu", "あくしつ"],
+    "meaning": "惡劣"
+  },
+  {
+    "kanji": "安定",
+    "answers": ["antei", "あんてい"],
+    "meaning": "安定"
+  },
+  {
+    "kanji": "有利",
+    "answers": ["yuuri", "ゆうり"],
+    "meaning": "有利"
+  },
+  {
+    "kanji": "有効",
+    "answers": ["yuukou", "ゆうこう"],
+    "meaning": "有效"
+  },
+  {
+    "kanji": "有能",
+    "answers": ["yuunou", "ゆうのう"],
+    "meaning": "有能力"
+  },
+  {
+    "kanji": "愉快",
+    "answers": ["yukai", "ゆかい"],
+    "meaning": "愉快"
+  },
+  {
+    "kanji": "有名",
+    "answers": ["yuumei", "ゆうめい"],
+    "meaning": "有名"
+  },
+  {
+    "kanji": "勇敢",
+    "answers": ["yuukan", "ゆうかん"],
+    "meaning": "勇敢"
+  },
+  {
+    "kanji": "陽気",
+    "answers": ["youki", "ようき"],
+    "meaning": "開朗"
+  },
+  {
+    "kanji": "余計",
+    "answers": ["yokei", "よけい"],
+    "meaning": "多餘"
+  },
+  {
+    "kanji": "立派",
+    "answers": ["rippa", "りっぱ"],
+    "meaning": "優秀"
+  },
+  {
+    "kanji": "冷静",
+    "answers": ["reisei", "れいせい"],
+    "meaning": "冷靜"
+  },
+  {
+    "kanji": "冷酷",
+    "answers": ["reikoku", "れいこく"],
+    "meaning": "冷酷"
+  },
+  {
+    "kanji": "老舗",
+    "answers": ["shinise", "しにせ"],
+    "meaning": "老字號"
+  },
+  {
+    "kanji": "我慢強い",
+    "answers": ["gamanzuyoi", "がまんづよい"],
+    "meaning": "忍耐力強"
+  },
+  {
+    "kanji": "面倒",
+    "answers": ["mendou", "めんどう"],
+    "meaning": "麻煩"
+  },
+  {
+    "kanji": "豊富",
+    "answers": ["houfu", "ほうふ"],
+    "meaning": "豐富"
+  },
+  {
+    "kanji": "複雑",
+    "answers": ["fukuzatsu", "ふくざつ"],
+    "meaning": "複雜"
+  },
+  {
+    "kanji": "不安",
+    "answers": ["fuan", "ふあん"],
+    "meaning": "不安"
+  },
+  {
+    "kanji": "不可能",
+    "answers": ["fukanou", "ふかのう"],
+    "meaning": "不可能"
+  },
+  {
+    "kanji": "不規則",
+    "answers": ["fukisoku", "ふきそく"],
+    "meaning": "不規則"
+  },
+  {
+    "kanji": "不潔",
+    "answers": ["fuketsu", "ふけつ"],
+    "meaning": "不潔"
+  },
+  {
+    "kanji": "不自然",
+    "answers": ["fushizen", "ふしぜん"],
+    "meaning": "不自然"
+  },
+  {
+    "kanji": "不自由",
+    "answers": ["fujiyuu", "ふじゆう"],
+    "meaning": "不方便"
+  },
+  {
+    "kanji": "不正",
+    "answers": ["fusei", "ふせい"],
+    "meaning": "不正"
+  },
+  {
+    "kanji": "不満",
+    "answers": ["fuman", "ふまん"],
+    "meaning": "不滿"
+  },
+  {
+    "kanji": "平等",
+    "answers": ["byoudou", "びょうどう"],
+    "meaning": "平等"
+  },
+  {
+    "kanji": "必死",
+    "answers": ["hisshi", "ひっし"],
+    "meaning": "拼命"
+  },
+  {
+    "kanji": "微妙",
+    "answers": ["bimyou", "びみょう"],
+    "meaning": "微妙"
+  },
+  {
+    "kanji": "貧乏",
+    "answers": ["binbou", "びんぼう"],
+    "meaning": "貧窮"
+  },
+  {
+    "kanji": "不利",
+    "answers": ["furi", "ふり"],
+    "meaning": "不利"
+  },
+  {
+    "kanji": "不便",
+    "answers": ["fuben", "ふべん"],
+    "meaning": "不方便"
+  },
+  {
+    "kanji": "不明",
+    "answers": ["fumei", "ふめい"],
+    "meaning": "不明"
+  }
+]

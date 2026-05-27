@@ -1,0 +1,737 @@
+[
+  {
+    "kanji": "季節",
+    "answers": ["kisetsu", "きせつ"],
+    "meaning": "季節"
+  },
+  {
+    "kanji": "春",
+    "answers": ["haru", "はる"],
+    "meaning": "春天"
+  },
+  {
+    "kanji": "夏",
+    "answers": ["natsu", "なつ"],
+    "meaning": "夏天"
+  },
+  {
+    "kanji": "秋",
+    "answers": ["aki", "あき"],
+    "meaning": "秋天"
+  },
+  {
+    "kanji": "冬",
+    "answers": ["fuyu", "ふゆ"],
+    "meaning": "冬天"
+  },
+  {
+    "kanji": "午前",
+    "answers": ["gozen", "ごぜん"],
+    "meaning": "上午"
+  },
+  {
+    "kanji": "午後",
+    "answers": ["gogo", "ごご"],
+    "meaning": "下午"
+  },
+  {
+    "kanji": "夕方",
+    "answers": ["yuugata", "ゆうがた"],
+    "meaning": "傍晚"
+  },
+  {
+    "kanji": "今週",
+    "answers": ["konshuu", "こんしゅう"],
+    "meaning": "這週"
+  },
+  {
+    "kanji": "来週",
+    "answers": ["raishuu", "らいしゅう"],
+    "meaning": "下週"
+  },
+  {
+    "kanji": "先週",
+    "answers": ["senshuu", "せんしゅう"],
+    "meaning": "上週"
+  },
+  {
+    "kanji": "今月",
+    "answers": ["kongetsu", "こんげつ"],
+    "meaning": "這個月"
+  },
+  {
+    "kanji": "来月",
+    "answers": ["raigetsu", "らいげつ"],
+    "meaning": "下個月"
+  },
+  {
+    "kanji": "先月",
+    "answers": ["sengetsu", "せんげつ"],
+    "meaning": "上個月"
+  },
+  {
+    "kanji": "今年",
+    "answers": ["kotoshi", "ことし"],
+    "meaning": "今年"
+  },
+  {
+    "kanji": "去年",
+    "answers": ["kyonen", "きょねん"],
+    "meaning": "去年"
+  },
+  {
+    "kanji": "来年",
+    "answers": ["rainen", "らいねん"],
+    "meaning": "明年"
+  },
+  {
+    "kanji": "誕生日",
+    "answers": ["tanjoubi", "たんじょうび"],
+    "meaning": "生日"
+  },
+  {
+    "kanji": "会議",
+    "answers": ["kaigi", "かいぎ"],
+    "meaning": "會議"
+  },
+  {
+    "kanji": "授業",
+    "answers": ["jugyou", "じゅぎょう"],
+    "meaning": "課程"
+  },
+  {
+    "kanji": "教科書",
+    "answers": ["kyoukasho", "きょうかしょ"],
+    "meaning": "教科書"
+  },
+  {
+    "kanji": "作文",
+    "answers": ["sakubun", "さくぶん"],
+    "meaning": "作文"
+  },
+  {
+    "kanji": "会話",
+    "answers": ["kaiwa", "かいわ"],
+    "meaning": "會話"
+  },
+  {
+    "kanji": "文法",
+    "answers": ["bunpou", "ぶんぽう"],
+    "meaning": "文法"
+  },
+  {
+    "kanji": "発音",
+    "answers": ["hatsuon", "はつおん"],
+    "meaning": "發音"
+  },
+  {
+    "kanji": "単語",
+    "answers": ["tango", "たんご"],
+    "meaning": "單字"
+  },
+  {
+    "kanji": "文章",
+    "answers": ["bunshou", "ぶんしょう"],
+    "meaning": "文章"
+  },
+  {
+    "kanji": "黒板",
+    "answers": ["kokuban", "こくばん"],
+    "meaning": "黑板"
+  },
+  {
+    "kanji": "鉛筆",
+    "answers": ["enpitsu", "えんぴつ"],
+    "meaning": "鉛筆"
+  },
+  {
+    "kanji": "消しゴム",
+    "answers": ["keshigomu", "けしごむ"],
+    "meaning": "橡皮擦"
+  },
+  {
+    "kanji": "筆箱",
+    "answers": ["fudebako", "ふでばこ"],
+    "meaning": "鉛筆盒"
+  },
+  {
+    "kanji": "紙袋",
+    "answers": ["kamibukuro", "かみぶくろ"],
+    "meaning": "紙袋"
+  },
+  {
+    "kanji": "封筒",
+    "answers": ["fuutou", "ふうとう"],
+    "meaning": "信封"
+  },
+  {
+    "kanji": "切手",
+    "answers": ["kitte", "きって"],
+    "meaning": "郵票"
+  },
+  {
+    "kanji": "荷物",
+    "answers": ["nimotsu", "にもつ"],
+    "meaning": "行李"
+  },
+  {
+    "kanji": "商品",
+    "answers": ["shouhin", "しょうひん"],
+    "meaning": "商品"
+  },
+  {
+    "kanji": "値段",
+    "answers": ["nedan", "ねだん"],
+    "meaning": "價格"
+  },
+  {
+    "kanji": "お金",
+    "answers": ["okane", "おかね"],
+    "meaning": "金錢"
+  },
+  {
+    "kanji": "千円",
+    "answers": ["senen", "せんえん"],
+    "meaning": "一千日圓"
+  },
+  {
+    "kanji": "万年筆",
+    "answers": ["mannenhitsu", "まんねんひつ"],
+    "meaning": "鋼筆"
+  },
+  {
+    "kanji": "宿泊",
+    "answers": ["shukuhaku", "しゅくはく"],
+    "meaning": "住宿"
+  },
+  {
+    "kanji": "旅館",
+    "answers": ["ryokan", "りょかん"],
+    "meaning": "日式旅館"
+  },
+  {
+    "kanji": "ホテル",
+    "answers": ["hoteru", "ほてる"],
+    "meaning": "飯店"
+  },
+  {
+    "kanji": "公園",
+    "answers": ["kouen", "こうえん"],
+    "meaning": "公園"
+  },
+  {
+    "kanji": "動物園",
+    "answers": ["doubutsuen", "どうぶつえん"],
+    "meaning": "動物園"
+  },
+  {
+    "kanji": "美術館",
+    "answers": ["bijutsukan", "びじゅつかん"],
+    "meaning": "美術館"
+  },
+  {
+    "kanji": "寺",
+    "answers": ["tera", "てら"],
+    "meaning": "寺廟"
+  },
+  {
+    "kanji": "神社",
+    "answers": ["jinja", "じんじゃ"],
+    "meaning": "神社"
+  },
+  {
+    "kanji": "橋",
+    "answers": ["hashi", "はし"],
+    "meaning": "橋"
+  },
+  {
+    "kanji": "交差点",
+    "answers": ["kousaten", "こうさてん"],
+    "meaning": "十字路口"
+  },
+  {
+    "kanji": "信号",
+    "answers": ["shingou", "しんごう"],
+    "meaning": "紅綠燈"
+  },
+  {
+    "kanji": "駐車場",
+    "answers": ["chuushajou", "ちゅうしゃじょう"],
+    "meaning": "停車場"
+  },
+  {
+    "kanji": "玄関",
+    "answers": ["genkan", "げんかん"],
+    "meaning": "玄關"
+  },
+  {
+    "kanji": "庭",
+    "answers": ["niwa", "にわ"],
+    "meaning": "庭院"
+  },
+  {
+    "kanji": "冷蔵庫",
+    "answers": ["reizouko", "れいぞうこ"],
+    "meaning": "冰箱"
+  },
+  {
+    "kanji": "洗濯機",
+    "answers": ["sentakuki", "せんたくき"],
+    "meaning": "洗衣機"
+  },
+  {
+    "kanji": "電子レンジ",
+    "answers": ["denshi renji", "でんしれんじ"],
+    "meaning": "微波爐"
+  },
+  {
+    "kanji": "エアコン",
+    "answers": ["eakon", "えあこん"],
+    "meaning": "冷氣"
+  },
+  {
+    "kanji": "電灯",
+    "answers": ["dentou", "でんとう"],
+    "meaning": "電燈"
+  },
+  {
+    "kanji": "毛布",
+    "answers": ["moufu", "もうふ"],
+    "meaning": "毛毯"
+  },
+  {
+    "kanji": "布団",
+    "answers": ["futon", "ふとん"],
+    "meaning": "日式被褥"
+  },
+  {
+    "kanji": "枕",
+    "answers": ["makura", "まくら"],
+    "meaning": "枕頭"
+  },
+  {
+    "kanji": "石鹸",
+    "answers": ["sekken", "せっけん"],
+    "meaning": "肥皂"
+  },
+  {
+    "kanji": "歯ブラシ",
+    "answers": ["haburashi", "はぶらし"],
+    "meaning": "牙刷"
+  },
+  {
+    "kanji": "歯",
+    "answers": ["ha", "は"],
+    "meaning": "牙齒"
+  },
+  {
+    "kanji": "髪",
+    "answers": ["kami", "かみ"],
+    "meaning": "頭髮"
+  },
+  {
+    "kanji": "顔",
+    "answers": ["kao", "かお"],
+    "meaning": "臉"
+  },
+  {
+    "kanji": "声",
+    "answers": ["koe", "こえ"],
+    "meaning": "聲音"
+  },
+  {
+    "kanji": "心",
+    "answers": ["kokoro", "こころ"],
+    "meaning": "心"
+  },
+  {
+    "kanji": "熱",
+    "answers": ["netsu", "ねつ"],
+    "meaning": "發燒"
+  },
+  {
+    "kanji": "風邪",
+    "answers": ["kaze", "かぜ"],
+    "meaning": "感冒"
+  },
+  {
+    "kanji": "怪我",
+    "answers": ["kega", "けが"],
+    "meaning": "受傷"
+  },
+  {
+    "kanji": "痛み",
+    "answers": ["itami", "いたみ"],
+    "meaning": "疼痛"
+  },
+  {
+    "kanji": "受付",
+    "answers": ["uketsuke", "うけつけ"],
+    "meaning": "櫃檯"
+  },
+  {
+    "kanji": "予約",
+    "answers": ["yoyaku", "よやく"],
+    "meaning": "預約"
+  },
+  {
+    "kanji": "順番",
+    "answers": ["junban", "じゅんばん"],
+    "meaning": "順序"
+  },
+  {
+    "kanji": "趣味",
+    "answers": ["shumi", "しゅみ"],
+    "meaning": "興趣"
+  },
+  {
+    "kanji": "特技",
+    "answers": ["tokugi", "とくぎ"],
+    "meaning": "特長"
+  },
+  {
+    "kanji": "夢",
+    "answers": ["yume", "ゆめ"],
+    "meaning": "夢想"
+  },
+  {
+    "kanji": "希望",
+    "answers": ["kibou", "きぼう"],
+    "meaning": "希望"
+  },
+  {
+    "kanji": "将来",
+    "answers": ["shourai", "しょうらい"],
+    "meaning": "將來"
+  },
+  {
+    "kanji": "経験",
+    "answers": ["keiken", "けいけん"],
+    "meaning": "經驗"
+  },
+  {
+    "kanji": "事故",
+    "answers": ["jiko", "じこ"],
+    "meaning": "事故"
+  },
+  {
+    "kanji": "地震",
+    "answers": ["jishin", "じしん"],
+    "meaning": "地震"
+  },
+  {
+    "kanji": "台風",
+    "answers": ["taifuu", "たいふう"],
+    "meaning": "颱風"
+  },
+  {
+    "kanji": "火事",
+    "answers": ["kaji", "かじ"],
+    "meaning": "火災"
+  },
+  {
+    "kanji": "泥棒",
+    "answers": ["dorobou", "どろぼう"],
+    "meaning": "小偷"
+  },
+  {
+    "kanji": "警察",
+    "answers": ["keisatsu", "けいさつ"],
+    "meaning": "警察"
+  },
+  {
+    "kanji": "財布",
+    "answers": ["saifu", "さいふ"],
+    "meaning": "錢包"
+  },
+  {
+    "kanji": "住所録",
+    "answers": ["juushoroku", "じゅうしょろく"],
+    "meaning": "通訊錄"
+  },
+  {
+    "kanji": "案内",
+    "answers": ["annai", "あんない"],
+    "meaning": "導覽"
+  },
+  {
+    "kanji": "説明",
+    "answers": ["setsumei", "せつめい"],
+    "meaning": "說明"
+  },
+  {
+    "kanji": "返事",
+    "answers": ["henji", "へんじ"],
+    "meaning": "回覆"
+  },
+  {
+    "kanji": "会場",
+    "answers": ["kaijou", "かいじょう"],
+    "meaning": "會場"
+  },
+  {
+    "kanji": "席",
+    "answers": ["seki", "せき"],
+    "meaning": "座位"
+  },
+  {
+    "kanji": "入口",
+    "answers": ["iriguchi", "いりぐち"],
+    "meaning": "入口"
+  },
+  {
+    "kanji": "出口",
+    "answers": ["deguchi", "でぐち"],
+    "meaning": "出口"
+  },
+  {
+    "kanji": "階段",
+    "answers": ["kaidan", "かいだん"],
+    "meaning": "樓梯"
+  },
+  {
+    "kanji": "窓口",
+    "answers": ["madoguchi", "まどぐち"],
+    "meaning": "窗口"
+  },
+  {
+    "kanji": "受付係",
+    "answers": ["uketsukegakari", "うけつけがかり"],
+    "meaning": "接待員"
+  },
+  {
+    "kanji": "理由書",
+    "answers": ["riyuusho", "りゆうしょ"],
+    "meaning": "理由書"
+  },
+  {
+    "kanji": "辞典",
+    "answers": ["jiten", "じてん"],
+    "meaning": "辭典"
+  },
+  {
+    "kanji": "通知",
+    "answers": ["tsuuchi", "つうち"],
+    "meaning": "通知"
+  },
+  {
+    "kanji": "情報",
+    "answers": ["jouhou", "じょうほう"],
+    "meaning": "資訊"
+  },
+  {
+    "kanji": "画面",
+    "answers": ["gamen", "がめん"],
+    "meaning": "畫面"
+  },
+  {
+    "kanji": "機械",
+    "answers": ["kikai", "きかい"],
+    "meaning": "機器"
+  },
+  {
+    "kanji": "部品",
+    "answers": ["buhin", "ぶひん"],
+    "meaning": "零件"
+  },
+  {
+    "kanji": "工場",
+    "answers": ["koujou", "こうじょう"],
+    "meaning": "工廠"
+  },
+  {
+    "kanji": "社長",
+    "answers": ["shachou", "しゃちょう"],
+    "meaning": "社長"
+  },
+  {
+    "kanji": "部長",
+    "answers": ["buchou", "ぶちょう"],
+    "meaning": "部長"
+  },
+  {
+    "kanji": "課長",
+    "answers": ["kachou", "かちょう"],
+    "meaning": "課長"
+  },
+  {
+    "kanji": "同僚",
+    "answers": ["douryou", "どうりょう"],
+    "meaning": "同事"
+  },
+  {
+    "kanji": "受付番号",
+    "answers": ["uketsuke bangou", "うけつけばんごう"],
+    "meaning": "受理號碼"
+  },
+  {
+    "kanji": "昼休み",
+    "answers": ["hiruyasumi", "ひるやすみ"],
+    "meaning": "午休"
+  },
+  {
+    "kanji": "残業",
+    "answers": ["zangyou", "ざんぎょう"],
+    "meaning": "加班"
+  },
+  {
+    "kanji": "給料",
+    "answers": ["kyuuryou", "きゅうりょう"],
+    "meaning": "薪水"
+  },
+  {
+    "kanji": "生活費",
+    "answers": ["seikatsuhi", "せいかつひ"],
+    "meaning": "生活費"
+  },
+  {
+    "kanji": "貯金",
+    "answers": ["chokin", "ちょきん"],
+    "meaning": "存款"
+  },
+  {
+    "kanji": "趣味",
+    "answers": ["shumi", "しゅみ"],
+    "meaning": "興趣"
+  },
+  {
+    "kanji": "運動",
+    "answers": ["undou", "うんどう"],
+    "meaning": "運動"
+  },
+  {
+    "kanji": "試合",
+    "answers": ["shiai", "しあい"],
+    "meaning": "比賽"
+  },
+  {
+    "kanji": "選手",
+    "answers": ["senshu", "せんしゅ"],
+    "meaning": "選手"
+  },
+  {
+    "kanji": "応援",
+    "answers": ["ouen", "おうえん"],
+    "meaning": "加油"
+  },
+  {
+    "kanji": "自由",
+    "answers": ["jiyuu", "じゆう"],
+    "meaning": "自由"
+  },
+  {
+    "kanji": "安全",
+    "answers": ["anzen", "あんぜん"],
+    "meaning": "安全"
+  },
+  {
+    "kanji": "危険",
+    "answers": ["kiken", "きけん"],
+    "meaning": "危險"
+  },
+  {
+    "kanji": "必要",
+    "answers": ["hitsuyou", "ひつよう"],
+    "meaning": "必要"
+  },
+  {
+    "kanji": "不便",
+    "answers": ["fuben", "ふべん"],
+    "meaning": "不方便"
+  },
+  {
+    "kanji": "便利",
+    "answers": ["benri", "べんり"],
+    "meaning": "方便"
+  },
+  {
+    "kanji": "有名",
+    "answers": ["yuumei", "ゆうめい"],
+    "meaning": "有名"
+  },
+  {
+    "kanji": "特別",
+    "answers": ["tokubetsu", "とくべつ"],
+    "meaning": "特別"
+  },
+  {
+    "kanji": "大切",
+    "answers": ["taisetsu", "たいせつ"],
+    "meaning": "重要"
+  },
+  {
+    "kanji": "親切",
+    "answers": ["shinsetsu", "しんせつ"],
+    "meaning": "親切"
+  },
+  {
+    "kanji": "元気",
+    "answers": ["genki", "げんき"],
+    "meaning": "精神"
+  },
+  {
+    "kanji": "笑顔",
+    "answers": ["egao", "えがお"],
+    "meaning": "笑容"
+  },
+  {
+    "kanji": "気分",
+    "answers": ["kibun", "きぶん"],
+    "meaning": "心情"
+  },
+  {
+    "kanji": "愛",
+    "answers": ["ai", "あい"],
+    "meaning": "愛"
+  },
+  {
+    "kanji": "平和",
+    "answers": ["heiwa", "へいわ"],
+    "meaning": "和平"
+  },
+  {
+    "kanji": "歴史",
+    "answers": ["rekishi", "れきし"],
+    "meaning": "歷史"
+  },
+  {
+    "kanji": "科学",
+    "answers": ["kagaku", "かがく"],
+    "meaning": "科學"
+  },
+  {
+    "kanji": "数学",
+    "answers": ["suugaku", "すうがく"],
+    "meaning": "數學"
+  },
+  {
+    "kanji": "美術",
+    "answers": ["bijutsu", "びじゅつ"],
+    "meaning": "美術"
+  },
+  {
+    "kanji": "音声",
+    "answers": ["onsei", "おんせい"],
+    "meaning": "聲音"
+  },
+  {
+    "kanji": "地理",
+    "answers": ["chiri", "ちり"],
+    "meaning": "地理"
+  },
+  {
+    "kanji": "経済",
+    "answers": ["keizai", "けいざい"],
+    "meaning": "經濟"
+  },
+  {
+    "kanji": "政治",
+    "answers": ["seiji", "せいじ"],
+    "meaning": "政治"
+  },
+  {
+    "kanji": "法律",
+    "answers": ["houritsu", "ほうりつ"],
+    "meaning": "法律"
+  }
+]

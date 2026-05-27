@@ -12,7 +12,7 @@
  
     <div class="text-center space-y-2">
       <h1 class="text-4xl font-bold text-white">
-        N5/N4 單字訓練
+        日文訓練
       </h1>
  
       <p class="text-slate-400">
@@ -117,13 +117,13 @@
           id="newRoundButton"
           class="flex-1 bg-blue-600 text-white py-4 rounded-2xl font-semibold hover:bg-blue-700 transition-colors"
         >
-          New Round 🔄
+          新一輪問題
         </button>
         <button
           id="repeatRoundButton"
           class="flex-1 bg-purple-600 text-white py-4 rounded-2xl font-semibold hover:bg-purple-700 transition-colors"
         >
-          Repeat Round 🔁
+          重複題目練習 🔁
         </button>
       </div>
       
@@ -244,7 +244,7 @@
 
       const defaultOption = document.createElement('option');
       defaultOption.value = '';
-      defaultOption.textContent = 'Select a lesson...';
+      defaultOption.textContent = '選擇你的課題';
       jsonSelector.appendChild(defaultOption);
 
       jsonFiles.forEach(file => {
@@ -338,7 +338,7 @@
       // Add "All Questions" option
       const allOption = document.createElement('option');
       allOption.value = allQuestions.length;
-      allOption.textContent = `All (${allQuestions.length})`;
+      allOption.textContent = `全部 (${allQuestions.length})`;
       questionCountSelect.appendChild(allOption);
 
       // Set default to 10 or the closest available option
@@ -394,15 +394,15 @@
       if (isCorrect) {
         score++;
         scoreDisplay.textContent = score;
-        feedback.textContent = `✓ Correct! ${question.meaning}`;
+        feedback.textContent = `✓ 正確! ${question.meaning}`;
         feedback.className = 'p-4 rounded-2xl text-center font-medium bg-green-900 text-green-200';
       } else {
-        feedback.textContent = `✗ Wrong. Correct answer: ${question.answers.join(' / ')} (${question.meaning})`;
+        feedback.textContent = `✗ 錯誤. 正確答案: ${question.answers.join(' / ')} (${question.meaning})`;
         feedback.className = 'p-4 rounded-2xl text-center font-medium bg-red-900 text-red-200';
       }
 
       feedback.classList.remove('hidden');
-      submitButton.textContent = 'Next →';
+      submitButton.textContent = ' 下一題 →';
     }
 
     function nextQuestion() {
@@ -415,7 +415,7 @@
 
     function showResults() {
       const percentage = Math.round((score / questions.length) * 100);
-      feedback.textContent = `Quiz Complete! You scored ${score}/${questions.length} (${percentage}%)`;
+      feedback.textContent = `測驗完畢! 你的分數 ${score}/${questions.length} (${percentage}%)`;
       feedback.className = 'p-4 rounded-2xl text-center font-medium bg-blue-900 text-blue-200';
       feedback.classList.remove('hidden');
       kanjiDisplay.textContent = '🎉';

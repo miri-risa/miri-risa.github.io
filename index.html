@@ -7,32 +7,32 @@
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-black min-h-screen flex items-center justify-center p-6 text-white">
-
+ 
   <div class="w-full max-w-2xl bg-slate-900 border border-slate-800 rounded-3xl shadow-2xl p-8 space-y-6">
-
+ 
     <div class="text-center space-y-2">
       <h1 class="text-4xl font-bold text-white">
         N5/N4 單字訓練
       </h1>
-
+ 
       <p class="text-slate-400">
         練啦仲望
       </p>
     </div>
-
+ 
     <div class="bg-slate-950 border border-slate-800 rounded-2xl p-4 space-y-4">
       <div>
         <label class="block text-sm font-semibold text-slate-200 mb-2">
           題目數量
         </label>
-
+ 
         <div class="flex gap-3">
           <select
             id="questionCount"
             class="flex-1 p-3 rounded-xl bg-slate-900 border border-slate-700 text-white"
           >
           </select>
-
+ 
           <button
             id="refreshQuestions"
             class="px-5 py-3 rounded-xl bg-white text-black font-semibold hover:bg-slate-300 transition-colors"
@@ -44,31 +44,31 @@
       <label class="block text-sm font-semibold text-slate-200">
         Upload JSON Lesson File
       </label>
-
+ 
       <input
         type="file"
         id="jsonFile"
         accept=".json,application/json"
         class="block w-full text-sm text-slate-400"
       />
-
+ 
       <div class="text-xs text-slate-400">
         Loaded: <span id="loadedFile">sample-questions.json</span>
       </div>
     </div>
-
+ 
     <div class="bg-slate-950 border border-slate-800 text-white rounded-3xl p-8 text-center space-y-4">
       <div id="questionCounter" class="text-sm uppercase tracking-widest text-slate-400"></div>
-
+ 
       <div id="kanjiDisplay" class="text-4xl font-bold tracking-wide">
         水
       </div>
-
+ 
       <div class="text-slate-400 text-sm">
         請輸入羅馬拼音或平假文
       </div>
     </div>
-
+ 
     <div id="quizSection" class="space-y-4">
       <input
         type="text"
@@ -76,7 +76,7 @@
         placeholder="請在此輸入..."
         class="w-full p-4 rounded-2xl border-2 border-slate-700 bg-slate-900 text-white focus:border-slate-400 outline-none text-lg"
       />
-
+ 
       <div class="flex items-center justify-between gap-4">
         <button
           id="submitButton"
@@ -84,38 +84,38 @@
         >
           查看答案
         </button>
-
+ 
         <div class="text-lg font-semibold text-slate-200 min-w-fit">
           分數: <span id="scoreDisplay">0</span>
         </div>
       </div>
-
+ 
       <div id="feedback" class="hidden p-4 rounded-2xl text-center font-medium"></div>
         <div class="bg-slate-950 border border-slate-800 rounded-2xl p-6 space-y-4">
       <h2 class="text-2xl font-bold text-white">
         README
       </h2>
-
+ 
       <div class="space-y-3 text-slate-300 text-sm leading-relaxed">
         <p>
           This app loads kanji questions from a <code class="bg-slate-800 px-2 py-1 rounded">questions.json</code> file.
         </p>
-
+ 
         <p>
           If a <code class="bg-slate-800 px-2 py-1 rounded">questions.json</code> file exists in the same folder as this HTML file,
           it will automatically load on startup.
         </p>
-
+ 
         <p>
           You can also manually upload another JSON file at any time.
         </p>
       </div>
-
+ 
       <div>
         <div class="text-slate-200 font-semibold mb-2">
           JSON Template
         </div>
-
+ 
         <pre class="bg-black border border-slate-800 rounded-2xl p-4 overflow-x-auto text-slate-300 text-xs">[
   {
     "kanji": "水",
@@ -129,16 +129,16 @@
   }
 ]</pre>
       </div>
-
+ 
       <div class="space-y-2 text-slate-400 text-xs">
         <div>
           made by ch1 (c) 2026
         </div>
-
+ 
       </div>
     </div>
   </div>
-
+ 
   <script>
     const sampleQuestions = `[
   {
@@ -990,212 +990,185 @@
     "meaning": "可惜的"
   }
     ]`;
-
+ 
     let questions = [];
     let allQuestions = [];
     let currentIndex = 0;
     let score = 0;
-
+ 
     const jsonFileInput = document.getElementById('jsonFile');
     const loadedFile = document.getElementById('loadedFile');
+    const questionCountSelect = document.getElementById('questionCount');
     const kanjiDisplay = document.getElementById('kanjiDisplay');
-    const questionCounter = document.getElementById('questionCounter');
     const answerInput = document.getElementById('answerInput');
     const submitButton = document.getElementById('submitButton');
-    const scoreDisplay = document.getElementById('scoreDisplay');
     const feedback = document.getElementById('feedback');
-    const quizSection = document.getElementById('quizSection');
-    const questionCountSelect = document.getElementById('questionCount');
-    const refreshQuestionsButton = document.getElementById('refreshQuestions');
-
-    function parseQuestions(jsonText) {
+    const scoreDisplay = document.getElementById('scoreDisplay');
+    const refreshButton = document.getElementById('refreshQuestions');
+    const questionCounter = document.getElementById('questionCounter');
+ 
+    // Function to load questions.json on page startup
+    async function loadQuestionsFromFile() {
       try {
-        return JSON.parse(jsonText);
-      } catch (error) {
-        alert('Invalid JSON file.');
-        return [];
-      }
-    }
-
-    function normalize(text) {
-      return text.trim().toLowerCase().replace(/\s+/g, '');
-    }
-
-    function populateQuestionOptions() {
-      const options = [20, 30, 40, 50, 60, 100];
-
-      questionCountSelect.innerHTML = '';
-
-      options.forEach(option => {
-        if (option <= allQuestions.length) {
-          const opt = document.createElement('option');
-          opt.value = option;
-          opt.textContent = option;
-          questionCountSelect.appendChild(opt);
-        }
-      });
-
-      const allOption = document.createElement('option');
-      allOption.value = 'all';
-      allOption.textContent = `All (${allQuestions.length})`;
-      questionCountSelect.appendChild(allOption);
-    }
-
-    function shuffleArray(array) {
-      return [...array].sort(() => Math.random() - 0.5);
-    }
-
-    function startQuiz() {
-      const selectedValue = questionCountSelect.value;
-
-      if (selectedValue === 'all') {
-        questions = shuffleArray(allQuestions);
-      } else {
-        const count = parseInt(selectedValue);
-        questions = shuffleArray(allQuestions).slice(0, count);
-      }
-
-      currentIndex = 0;
-      score = 0;
-
-      scoreDisplay.textContent = score;
-      quizSection.style.display = 'block';
-      feedback.classList.add('hidden');
-
-      updateQuestion();
-    }
-
-    function updateQuestion() {
-      if (currentIndex >= questions.length) {
-        kanjiDisplay.innerHTML = '🎉';
-        questionCounter.textContent = 'Practice Complete!';
-
-        feedback.classList.remove('hidden');
-        feedback.className = 'p-4 rounded-2xl text-center font-medium bg-green-900 text-green-200';
-        feedback.innerHTML = `
-          <div class="space-y-4">
-            <div>Final Score: ${score} / ${questions.length}</div>
-            <button
-              onclick="restartQuiz()"
-              class="bg-white text-black px-6 py-3 rounded-2xl font-semibold hover:bg-slate-300 transition-colors"
-            >
-              Restart Test
-            </button>
-          </div>
-        `;
-
-        quizSection.style.display = 'none';
-        return;
-      }
-
-      const current = questions[currentIndex];
-
-      kanjiDisplay.textContent = current.kanji;
-      questionCounter.textContent = `Question ${currentIndex + 1} / ${questions.length}`;
-
-      answerInput.value = '';
-      answerInput.focus();
-    }
-
-    function checkAnswer() {
-      const current = questions[currentIndex];
-      if (!current) return;
-
-      const userAnswer = normalize(answerInput.value);
-
-      const isCorrect = current.answers.some(answer => normalize(answer) === userAnswer);
-
-      feedback.classList.remove('hidden');
-
-      if (isCorrect) {
-        score++;
-        scoreDisplay.textContent = score;
-
-        feedback.className = 'p-4 rounded-2xl text-center font-medium bg-green-900 text-green-200';
-        feedback.textContent = '✅ 正確';
-
-        currentIndex++;
-
-        setTimeout(() => {
-          updateQuestion();
-        }, 1000);
-      } else {
-        const kanaAnswer = current.answers.find(answer => /[ぁ-んァ-ン]/.test(answer)) || current.answers[0];
-        const hintCharacter = kanaAnswer.charAt(0);
-
-        feedback.className = 'p-4 rounded-2xl text-center font-medium bg-red-900 text-red-200';
-        feedback.textContent = `❌ 咩事啊 你咁都唔識？  提示：${hintCharacter}`;
-      }
-    }
-
-    function loadQuestions(jsonText) {
-      allQuestions = parseQuestions(jsonText);
-
-      populateQuestionOptions();
-      startQuiz();
-    }
-
-    function restartQuiz() {
-      startQuiz();
-    }
-
-    async function loadDefaultQuestionsFile() {
-      try {
-        const response = await fetch('/questions.json');
-
-        if (!response.ok) {
+        const response = await fetch('questions.json');
+        if (response.ok) {
+          const data = await response.json();
+          allQuestions = data;
+          questions = [...data];
+          loadedFile.textContent = 'questions.json';
+          populateQuestionCount();
+          loadNextQuestion();
+        } else {
           throw new Error('questions.json not found');
         }
-
-        const text = await response.text();
-
-        loadedFile.textContent = 'questions.json';
-        loadQuestions(text);
       } catch (error) {
-        console.log('No questions.json file found. Using built-in sample questions.');
-
-        loadedFile.textContent = 'Built-in Sample Questions';
-        loadQuestions(sampleQuestions);
+        console.log('questions.json not found, using sample questions:', error);
+        // Fall back to sample questions
+        allQuestions = JSON.parse(sampleQuestions);
+        questions = [...allQuestions];
+        populateQuestionCount();
+        loadNextQuestion();
       }
     }
-
-    jsonFileInput.addEventListener('change', (event) => {
-      const file = event.target.files[0];
-      if (!file) return;
-
-      loadedFile.textContent = file.name;
-
-      const reader = new FileReader();
-
-      reader.onload = (e) => {
-        loadQuestions(e.target.result);
-      };
-
-      reader.readAsText(file, 'UTF-8');
-    });
-
-    submitButton.addEventListener('click', checkAnswer);
-
-    refreshQuestionsButton.addEventListener('click', () => {
-      if (allQuestions.length === 0) return;
-
-      startQuiz();
-    });
-
-    questionCountSelect.addEventListener('change', () => {
-      if (allQuestions.length === 0) return;
-
-      startQuiz();
-    });
-
-    answerInput.addEventListener('keydown', (event) => {
-      if (event.key === 'Enter') {
+ 
+    // Call loadQuestionsFromFile when DOM is ready
+    document.addEventListener('DOMContentLoaded', loadQuestionsFromFile);
+ 
+    function populateQuestionCount() {
+      const counts = [5, 10, 15, 20, 30, 50];
+      questionCountSelect.innerHTML = '';
+      counts.forEach(count => {
+        if (count <= allQuestions.length) {
+          const option = document.createElement('option');
+          option.value = count;
+          option.textContent = count;
+          questionCountSelect.appendChild(option);
+        }
+      });
+      if (questionCountSelect.options.length > 0) {
+        questionCountSelect.value = questionCountSelect.options[0].value;
+      }
+    }
+ 
+    function shuffleArray(array) {
+      const shuffled = [...array];
+      for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+      }
+      return shuffled;
+    }
+ 
+    function loadNextQuestion() {
+      if (currentIndex >= questions.length) {
+        kanjiDisplay.textContent = '完成！';
+        answerInput.disabled = true;
+        submitButton.disabled = true;
+        return;
+      }
+ 
+      const question = questions[currentIndex];
+      kanjiDisplay.textContent = question.kanji;
+      answerInput.value = '';
+      answerInput.focus();
+      feedback.classList.add('hidden');
+      questionCounter.textContent = `${currentIndex + 1} / ${questions.length}`;
+    }
+ 
+    function checkAnswer() {
+      if (currentIndex >= questions.length) return;
+ 
+      const question = questions[currentIndex];
+      const userAnswer = answerInput.value.toLowerCase().trim();
+      const correctAnswers = question.answers.map(a => a.toLowerCase().trim());
+ 
+      if (correctAnswers.includes(userAnswer)) {
+        feedback.textContent = `✓ 正確! ${question.meaning}`;
+        feedback.className = 'p-4 rounded-2xl text-center font-medium bg-green-900 text-green-200';
+        score++;
+        scoreDisplay.textContent = score;
+      } else {
+        const answers = question.answers.join(' / ');
+        feedback.textContent = `✗ 錯誤。正確答案: ${answers} (${question.meaning})`;
+        feedback.className = 'p-4 rounded-2xl text-center font-medium bg-red-900 text-red-200';
+      }
+ 
+      feedback.classList.remove('hidden');
+      submitButton.textContent = '下一題 →';
+ 
+      if (currentIndex === questions.length - 1) {
+        submitButton.textContent = '完成';
+      }
+    }
+ 
+    function nextQuestion() {
+      currentIndex++;
+      loadNextQuestion();
+      submitButton.textContent = '查看答案';
+    }
+ 
+    submitButton.addEventListener('click', () => {
+      if (submitButton.textContent === '查看答案') {
         checkAnswer();
+      } else {
+        nextQuestion();
       }
     });
-
-    loadQuestions(sampleQuestions);
+ 
+    answerInput.addEventListener('keypress', event => {
+      if (event.key === 'Enter') {
+        if (submitButton.textContent === '查看答案') {
+          checkAnswer();
+        } else {
+          nextQuestion();
+        }
+      }
+    });
+ 
+    jsonFileInput.addEventListener('change', event => {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = e => {
+          try {
+            const data = JSON.parse(e.target.result);
+            allQuestions = data;
+            questions = [...data];
+            currentIndex = 0;
+            score = 0;
+            scoreDisplay.textContent = '0';
+            loadedFile.textContent = file.name;
+            populateQuestionCount();
+            loadNextQuestion();
+          } catch (error) {
+            alert('Invalid JSON file');
+          }
+        };
+        reader.readAsText(file);
+      }
+    });
+ 
+    refreshButton.addEventListener('click', () => {
+      const selectedCount = parseInt(questionCountSelect.value);
+      questions = shuffleArray(allQuestions).slice(0, selectedCount);
+      currentIndex = 0;
+      score = 0;
+      scoreDisplay.textContent = '0';
+      loadNextQuestion();
+    });
+ 
+    // Initialize on page load if loadQuestionsFromFile doesn't run
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () => {
+        if (allQuestions.length === 0) {
+          loadQuestionsFromFile();
+        }
+      });
+    } else {
+      if (allQuestions.length === 0) {
+        loadQuestionsFromFile();
+      }
+    }
   </script>
-
 </body>
 </html>

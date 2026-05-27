@@ -293,12 +293,25 @@
 
     function populateQuestionCount() {
       questionCountSelect.innerHTML = '';
-      for (let i = 1; i <= Math.min(allQuestions.length, 20); i++) {
-        const option = document.createElement('option');
-        option.value = i;
-        option.textContent = i;
-        questionCountSelect.appendChild(option);
-      }
+      
+      const countOptions = [10, 20, 30, 40, 50];
+      
+      countOptions.forEach(count => {
+        if (count <= allQuestions.length) {
+          const option = document.createElement('option');
+          option.value = count;
+          option.textContent = count;
+          questionCountSelect.appendChild(option);
+        }
+      });
+
+      // Add "All Questions" option
+      const allOption = document.createElement('option');
+      allOption.value = allQuestions.length;
+      allOption.textContent = `All (${allQuestions.length})`;
+      questionCountSelect.appendChild(allOption);
+
+      // Set default to 10 or the closest available option
       questionCountSelect.value = Math.min(10, allQuestions.length);
     }
 

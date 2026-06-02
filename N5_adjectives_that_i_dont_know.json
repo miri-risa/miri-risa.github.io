@@ -1,67 +1,11 @@
 [
   {
-    "kanji": "明るい",
-    "answers": [
-      "akarui",
-      "あかるい"
-    ],
-    "meaning": "明亮的"
-  },
-  {
-    "kanji": "青い",
-    "answers": [
-      "aoi",
-      "あおい"
-    ],
-    "meaning": "藍色的"
-  },
-  {
-    "kanji": "近い",
-    "answers": [
-      "chikai",
-      "ちかい"
-    ],
-    "meaning": "近的"
-  },
-  {
     "kanji": "古い",
     "answers": [
       "furui",
       "ふるい"
     ],
     "meaning": "舊的"
-  },
-  {
-    "kanji": "太い",
-    "answers": [
-      "futoi",
-      "ふとい"
-    ],
-    "meaning": "粗的"
-  },
-  {
-    "kanji": "下手",
-    "answers": [
-      "heta",
-      "へた"
-    ],
-    "meaning": "不擅長"
-  },
-  {
-    "kanji": "低い",
-    "answers": [
-      "hikui",
-      "ひくい"
-    ],
-    "meaning": "低的"
-  },
-  {
-    "kanji": "暇",
-    "answers": [
-      "hima",
-      "ひま"
-    ],
-    "meaning": "空閒的"
   },
   {
     "kanji": "細い",
@@ -88,36 +32,12 @@
     "meaning": "討厭的"
   },
   {
-    "kanji": "上手",
-    "answers": [
-      "jouzu",
-      "じょうず"
-    ],
-    "meaning": "擅長的"
-  },
-  {
     "kanji": "黄色い",
     "answers": [
       "kiiroi",
       "きいろい"
     ],
     "meaning": "黃色的"
-  },
-  {
-    "kanji": "暗い",
-    "answers": [
-      "kurai",
-      "くらい"
-    ],
-    "meaning": "昏暗的"
-  },
-  {
-    "kanji": "多い",
-    "answers": [
-      "ooi",
-      "おおい"
-    ],
-    "meaning": "多的"
   },
   {
     "kanji": "狭い",
@@ -128,46 +48,6 @@
     "meaning": "狹窄的"
   },
   {
-    "kanji": "背が高い",
-    "answers": [
-      "segatakai",
-      "せがたかい"
-    ],
-    "meaning": "個子高"
-  },
-  {
-    "kanji": "背が低い",
-    "answers": [
-      "segahikui",
-      "せがひくい"
-    ],
-    "meaning": "個子矮"
-  },
-  {
-    "kanji": "小さな",
-    "answers": [
-      "chiisana",
-      "ちいさな"
-    ],
-    "meaning": "小小的"
-  },
-  {
-    "kanji": "遠い",
-    "answers": [
-      "tooi",
-      "とおい"
-    ],
-    "meaning": "遠的"
-  },
-  {
-    "kanji": "つまらない",
-    "answers": [
-      "tsumaranai",
-      "つまらない"
-    ],
-    "meaning": "無聊的"
-  },
-  {
     "kanji": "浅い",
     "answers": [
       "asai",
@@ -176,52 +56,12 @@
     "meaning": "淺的"
   },
   {
-    "kanji": "不便",
-    "answers": [
-      "fuben",
-      "ふべん"
-    ],
-    "meaning": "不方便的"
-  },
-  {
     "kanji": "深い",
     "answers": [
       "fukai",
       "ふかい"
     ],
     "meaning": "深的"
-  },
-  {
-    "kanji": "複雑",
-    "answers": [
-      "fukuzatsu",
-      "ふくざつ"
-    ],
-    "meaning": "複雜的"
-  },
-  {
-    "kanji": "酷い",
-    "answers": [
-      "hidoi",
-      "ひどい"
-    ],
-    "meaning": "糟糕的"
-  },
-  {
-    "kanji": "自由",
-    "answers": [
-      "jiyuu",
-      "じゆう"
-    ],
-    "meaning": "自由的"
-  },
-  {
-    "kanji": "十分",
-    "answers": [
-      "juubun",
-      "じゅうぶん"
-    ],
-    "meaning": "足夠的"
   },
   {
     "kanji": "硬い",
@@ -278,5 +118,37 @@
       "やわらかい"
     ],
     "meaning": "柔軟的"
+  },
+  {
+    "kanji": "淡い",
+    "answers": [
+      "awai",
+      "あわい"
+    ],
+    "meaning": "淡的、淺的／微弱的、朦朧的"
+  },
+  {
+    "kanji": "薄い",
+    "answers": [
+      "usui",
+      "うすい"
+    ],
+    "meaning": "薄的／淡的"
+  },
+  {
+    "kanji": "濃い",
+    "answers": [
+      "koi",
+      "こい"
+    ],
+    "meaning": "濃"
+  },
+  {
+    "kanji": "若い",
+    "answers": [
+      "wakai",
+      "わかい"
+    ],
+    "meaning": "年輕"
   }
 ]
